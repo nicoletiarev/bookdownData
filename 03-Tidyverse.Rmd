@@ -1,0 +1,367 @@
+---
+title: 'Tidyverse'
+
+---
+# Tidyverse 
+
+<div style="text-align: justify">
+
+Tidyverse es un conjunto de paquetes en R diseñados para ciencia de datos, el cual nos ayuda en todo el proceso de la importación, transformación, visualizar y modelación datos. Una de las principales ventajas es que tienen estos paquetes que comparten nombre y estructuras comunes., esto quiere decir que todos los nombres están en minúscula o que utilizan la barra baja para llamar a las funciones.
+
+```{r}
+#install.packages('tidyverse')
+library(tidyverse)
+
+```
+
+Algunas librería que contiene  disponible **tidyverse** son los siguientes:
+
+* ggplot2
+* dplyr
+* tidyr
+* readr
+* purrr
+* tibble
+* stringr
+* forcats
+
+## ggplot2
+
+Esta Liberia nos ayuda a construir los gráficos para la data frame y se basa en la idea que cualquier gráfica se puede construir usando los tres componentes: datos, coordenadas y objetos geométricos (geoms), esto es llamado como "gramática de las gráficas". Para más información vea el siguiente enlace.
+
+Cheatsheet: https://rstudio.com/wp-content/uploads/2016/12/ggplot2-cheatsheet-2.1-Spanish.pdf
+
+## dplyr
+
+la librería **dplyr** es una gramática de manipulación de datos que proporciona verbos que ayudan a la manipulación de datos algunos funciones más importante son las siguientes:
+
+CODIGO | DESCRIPCIÓN|
+:------:|:-----------|
+`mutate()` | Agrega nuevas variables que son funciones de variables existentes|
+`select()` | Elige variables en función de sus nombres.|
+`filter()`| Filtra datos basados en sus valores.|
+`summarise()`| Reduce varios valores a un solo resumen.|
+`arrange()` | Cambia el orden de las filas.|
+`slice()` | Elige filas según la ubicación.|
+`relocate()` | Cambia el orden de las columnas.|
+
+Todos ellos se combinan de forma natural con `group_by()`. 
+
+Para más información vea el siguiente link. Cheatsheet :
+https://rstudio.com/wp-content/uploads/2015/03/data-wrangling-spanish.pdf
+
+
+A continuación a traves de la base de datos de Airbnb new york 
+```{r echo=FALSE, message=FALSE}
+airbnb <- read.csv("C:/Users/nicol/OneDrive/Escritorio/DATA/AB_NYC_2019.csv")
+airbnb <- tail(airbnb, n = 10)
+airbnb <- select(airbnb, id, neighbourhood_group , room_type, price)
+```
+
+```{r}
+airbnb
+```
+
+
+```{r}
+str(airbnb)
+```
+
+### Agregar nuevas columnas con `mutate()`.
+
+Es útil agregar nuevas columnas que sean funciones de columnas existentes.Con la función  `mutate()` sirve más que nada para realizar operaciones matemáticas.
+
+por ejemplo, queremos crear una columna de comisión con uno 12%
+```{r}
+airbnb %>% mutate(comision = price * 0.12)
+airbnb 
+```
+
+
+### Seleccionar columnas con `select()`.
+
+La función `select()` le permite acercarse rápidamente a un subconjunto.
+
+```{r}
+airbnb %>% select( id, room_type, neighbourhood_group)
+```
+
+Una forma contraria de usarla es agregando `!` que nos dices que queremos sacar esas variables de la data . 
+```{r}
+airbnb %>% select(!( id:room_type:neighbourhood_group))
+```
+
+Hay una serie de funciones auxiliares se pueden utilizar dentro `select()`, como `starts_with()`, `ends_with()`, `matches()`y `contains()`.
+
+### Filtrar filas con `filter()`.
+
+Esta función nos permite seleccionar un subconjunto de filas en un marco de datos. Usaremos `%>%` para concatenar la data frame luego dentro de la función podremos el nombre de las variable que deseamos buscar o filtrar luego ponemos `==` todas la observaciones que tenga Brooklyn y para realizar el segundo filtro se separa con una coma para luego repetir lo anteriormente mencionado. 
+
+Ahora queremos saber los alojamientos que se encuentra en la Brooklyn con habitación Entire home/apt.
+
+```{r}
+airbnb %>% filter(neighbourhood_group  == "Brooklyn", room_type == "Entire home/apt")
+```
+
+Un equivalente a lo anterior  sin usar la función `filter()`sería el siguiente código.
+
+```{r eval=FALSE}
+airbnb[airbnb$neighbourhood_group  == "Brooklyn", airbnb$room_type == "Entire home/apt"]
+```
+
+### Organizar filas con `arrange()`
+
+La funciona `arrange()` selecciona filas ylas reordena, para ello  se necesita un marco de datos y un conjunto de nombres de columna para ordenar.
+
+```{r}
+airbnb %>% arrange(neighbourhood_group , room_type)
+```
+
+Esta se suele usar con la función `desc()`para ordenar de forma descendente.
+
+```{r}
+airbnb %>% arrange( desc(room_type))
+```
+
+### Elija filas usando su posición con `slice()`
+
+Esta función permite indexar filas por sus ubicaciones (enteras). Le permite seleccionar, eliminar y duplicar filas. por ejemplo, si queremos saber los caracteres de los números de filas 6 al 13.  
+
+```{r}
+airbnb %>% slice(6:13)
+```
+
+Otras variaciones son `slice_head()` y `slice_tail()` seleccione la primera o la última fila.
+
+```{r}
+airbnb %>% slice_tail(n = 6)
+```
+
+`slice_sample()`selecciona filas al azar.
+```{r}
+airbnb %>% slice_tail(n = 5)
+```
+
+Con las funciones  `slice_min()` y `slice_max()` selecciona las filas con los valores más altos o más bajos de una variable.
+
+```{r}
+airbnb %>% slice_max(price, n = 3)
+```
+
+### Cambiar el orden de las columnas con `relocate()`
+
+Utilice una sintaxis similar select()a la de mover bloques de columnas a la vez.
+```{r}
+airbnb %>% relocate(price:id)
+```
+
+### Resumir valores con `summarise()`
+El último verbo es summarise(). Colapsa un marco de datos en una sola fila.
+```{r}
+airbnb %>% summarise(price_mean = mean(price))
+```
+
+
+## tidyr
+
+la libreria **tidyr** crear datos ordenados . Los datos ordenados son datos donde:
+
+* Cada columna es variable.
+* Cada fila es una observación.
+* Cada celda es un valor único.
+
+Tidy data describe una forma estándar de almacenar datos que se utiliza siempre que sea posible en tidyverse . Si se asegura de que sus datos estén ordenados, pasará menos tiempo luchando con las herramientas y más tiempo trabajando en su análisis.
+
+## readr
+
+El objetivo de readr es proporcionar una forma rápida y sencilla de leer datos con formato csv, tsv y fwf . Está diseñado para analizar de manera flexible muchos tipos de datos . 
+
+readr admite siete formatos de archivo con siete read_funciones:
+
+**CODIGO**          |         **DESCRIPCIÓN**  |
+:-----------------:|:-------------------------|
+`read_csv()`| archivos separados por comas (CSV) |
+`read_tsv()`| archivos separados por tabulaciones |
+`read_delim()`| archivos delimitados generales |
+`read_fwf()`| archivos de ancho fijo |
+`read_table()`| archivos tabulares donde las columnas están separadas por espacios en blanco |
+`read_log()`| archivos de registro web |
+
+Para más información vea el siguiente link: https://readr.tidyverse.org/
+
+## purrr
+
+La liberia purrr mejora el conjunto de herramientas de programación funcional (FP) de R al proporcionar un conjunto completo y consistente de herramientas para trabajar con funciones y vectores y proporciona las funciones `map()`.
+
+Para más información vea el siguiente link: https://github.com/rstudio/cheatsheets/blob/master/purrr.pdf
+
+## tibble
+
+Un tibble , o tbl_df, Los tibbles son data frames, pero modifican algunas características antiguas para hacer su uso mas más fácil.  La mayoría de las veces usaremos el término tibble y data frame de manera indistinta; cuando queramos referirnos de manera particular a la data frame que viene incluido en R lo llamaremos `data.frame`.
+
+## stringr
+
+Con la librería stringr Hay cuatro principales de funciones, el primero es la manipulación de caracteres; estas funciones le permiten manipular caracteres individuales dentro de las cadenas en vectores de caracteres. La segunda son las herramientas de espacios en blanco para agregar, eliminar y manipular espacios en blanco, el tercero son las operaciones sensibles a la configuración regional cuyas operaciones variarán de una ubicación a otra y por último son las funciones de coincidencia de patrones. .
+
+Algunas funciones destacadas son las siguientes. 
+```{r}
+library(stringr)
+```
+
+
+### manipulación de caracteres
+
+Podemos obtener la longitud longitud de la cadena con la función `str_length()`:
+```{r}
+ str_length("hola")
+```
+
+Se puede acceder a una letra específica con la función `str_sub()` colocando la variable y luego la posición que deseamos buscar en este caso la 2.
+
+```{r}
+A <- c("hola", "hello" )
+
+str_sub(A, 2, 2)
+```
+
+Estos nos sirven también para modificar la cadena por ejemplo queremos remplazar la o y la e por una X .  
+
+```{r}
+str_sub(A, 2, 2) <- "X" 
+A
+```
+
+También podemos duplicar las cadenas con la función `str_dup()`. 
+```{r}
+str_dup(A, c(2, 2))
+```
+### Especio en blanco 
+
+Con la función `str_pad()` rellena una cuerda a una longitud fija agregando espacios en blanco adicionales a la izquierda, derecha o ambos lados.
+
+```{r}
+str_pad(A, 10)
+```
+```{r}
+str_pad(A, 10, "both")
+```
+Entonces, si desea asegurarse de que todas las cadenas tengan la misma longitud, combine `str_pad()` y `str_trunc()`:
+
+## forcats
+```{r}
+A %>% 
+  str_trunc(10) %>% 
+  str_pad(10, "right")
+```
+ 
+Lo contrario de lo anterior es la función `str_trim()` que elimina los espacios en blanco 
+ 
+```{r}
+A <- c("  hola  ", "  hello  " )
+str_trim(A)
+```
+
+Agregaremos left para indicar que dirección eliminar
+
+```{r}
+str_trim(A, "left")
+```
+
+Puede utilizar la función `str_wrap()` para modificar los espacios en blanco existentes para ajustar un párrafo de texto, de modo que la longitud de cada línea sea lo más similar posible.
+ 
+### Sensible a la configuración regional
+
+Si queremos modificar las palabras de pasarla de minúscula a mayúscula se utiliza la función `str_to_upper()`.
+
+```{r}
+A <- c("hola", "hello" )
+A <- str_to_upper(A)
+A
+```
+
+De mayúscula a minúscula.  
+
+```{r}
+str_to_title(A)
+```
+
+Sí queremos ordenar y clasificar la cadena usaremos la función `str_order()` y `str_sort()`.
+
+```{r}
+B <- c("c", "b", "e")
+str_order(B)
+
+```
+```{r}
+str_sort(B)
+```
+
+### La coincidencia de patrones
+
+La gran mayoría de funciones de stringr funcionan con patrones, estos están parametrizados por la tarea que realizan y los tipos de patrones que coinciden.
+```{r}
+numeros <- c(
+  "celular", 
+  "219 733 8965", 
+  "329-293-8753", 
+  "casa: 579-499-7527; trabajo: 543.355.3679"
+)
+telefonos <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
+```
+
+Usaremos la función `str_detect()` detecta la presencia o ausencia de un patrón y devuelve un vector lógico. Por ejemplo, para saber cuál pertenece a un número telefónico.  
+
+```{r}
+str_detect(numeros, telefonos)
+```
+
+Con la función `str_subset()` devuelve los elementos de un vector de caracteres que coinciden con una expresión regular. 
+
+```{r}
+str_subset(numeros, telefonos)
+```
+
+Ahora con la función `str_count()` cuenta el número de coincidencias, por ejemplo, queremos saber cuántos números de teléfonos existe en la cadena.
+
+```{r}
+str_count(numeros, telefonos)
+```
+
+Con la función `str_locate()` localiza la primera posición de un patrón y devuelve una matriz numérica con columnas al comienzo y al final, por ejemplo, si queremos saber en qué parte de la cadena se encuentra el número de teléfono.
+
+```{r}
+str_locate(numeros, telefonos)
+```
+ 
+La función `str_locate_all()` localiza todas las coincidencias, devolviendo una lista de matrices numéricas. 
+
+```{r}
+str_locate_all(numeros, telefonos)
+```
+
+Si queremos extraer el texto correspondiente a la primera coincidencia,  devolviendo un vector de caracteres con la función `str_extract()`.
+
+```{r}
+str_extract(numeros, telefonos)
+```
+
+Si queremos ver todos los números telefónicos usaremos la función `str_extract_all()`.
+
+```{r}
+str_extract_all(numeros, telefonos)
+```
+
+Ahora si queremos remplazar los números usaremos la función `str_replace()` reemplaza el primer patrón coincidente y devuelve un vector de caracteres. 
+
+```{r}
+str_replace(numeros, telefonos, "XXX-XXX-XXXX")
+```
+```{r}
+str_replace_all(numeros, telefonos, "XXX-XXX-XXXX")
+```
+
+## forcats 
+
+El paquete forcats proporciona un conjunto de herramientas útiles que resuelvan problemas comunes con factores. Los factores son útiles cuando tiene datos categóricos, variables que tienen un conjunto de valores fijo y conocido, y cuando desea mostrar los vectores de caracteres en orden no alfabético. 
+
+<div/>

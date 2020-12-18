@@ -1,0 +1,297 @@
+---
+title: "lenguaje"
+
+---
+# Lenguaje 
+
+<div style="text-align: justify">
+
+En este capítulo abordaremos los tipos de datos que se usan en una data frame, como también la estructura de control que nos permiten controlar el flujo de ejecución de una secuencia de comandos y la estructura de datos de la data frame. 
+
+## Tipos de datos 
+
+Los tipos de datos simples o fundamentales en R son los siguientes:
+
+TIPO | EJEMPLO | NOMBRE EN INGLÉS | CÓDIGO 
+-------|----------|--------|-------------
+enteros | 1  | integer | `is.integer()`
+numericos| 1.3 | numeric | `is.numeric()`
+cadena de texto | "uno" | character |`is.character()`
+factor | uno | factor | `is.factor()`
+lógico | true | logical | `is.logical()`
+perdido | NA | NA | `is.na()`
+vacío | NULL | NULL | `is.null()`
+complex | 1+2i | complex | `is.complex()`
+
+## Estructura de control 
+
+Las estructuras de control nos permiten controlar el flujo de ejecución de una secuencia de comandos. De este modo, podemos poner "lógica" en el código de R y lograr así reutilizar fragmentos del código una y otra vez. A continuación, veremos la sentencia de control .
+
+### Sentencias de Control - If / Else
+
+Esta sentencia nos permite decidir si ejecutar o no un fragmento de código en función de una condición.
+```{r}
+numero <- 6
+
+```
+
+```{r}
+if (numero > 5){
+  x <- TRUE
+} else {
+  x <- FALSE
+}
+```
+
+Otra forma de realizar lo anterior es de la siguiente manera. 
+```{r}
+ifelse(numero > 5, TRUE, FALSE)
+```
+
+### Control de Flujo 
+
+La función `while()` ejecuta un bucle o ciclo  mientras sea verdadera una condición.
+
+```{r}
+
+while(numero < 10) {
+  print(numero)
+  numero <- numero + 1
+}
+```
+El comando `for()` toman una variable a la que se le asignan los elementos de un objeto (en general, vectores o listas) en forma sucesiva a medida que se van recorriendo los ciclos.
+
+```{r}
+#for(<variable> in <objeto iterable>) {
+  # código
+  
+
+for(X in 1:5) {
+  print(X)
+}  
+```
+
+El comando `switch()` permite ejecutar un bloque de código distinto en función del valor de una variable.
+
+```{r}
+W <- 1:10
+type <- 'mean'
+switch(type,
+         mean = mean(W),
+         median = median(W),
+         sd = sd(W))
+```
+
+## Estructura de datos
+
+### Variables 
+
+El siguiente código asigna (= o <-) el valor 12 a las variables valor.
+
+```{r}
+valor = 25 
+# o 
+valor <- 25 
+```
+
+### Vectores 
+Los vectores pueden representar las columnas de una tabla de datos. un ejemplo podría ser la lista del curso con las notas. 
+
+![](C:\Users\nicol\OneDrive\Escritorio\imagenes/vectores.PNG)
+
+Si queremos crear vectores en R, utilizamos la función `c()`. En este caso, la c es de «combinar» (combinar uno o más valores o elementos). Lo más común, es que los vectores sean de tipo numérico, carácter o lógico.
+
+```{r}
+#vector 1
+Nombre <- c("Carlos", "Camila", "Erick")
+#vector 2
+Apellido <- c("Acosta", "Madrid", "Ortega")
+#vector 3 
+Prueba_1 <- c(40, 55, 65)
+#vector 4
+Prueba_2 <- c(60, 40, 60)
+```
+
+#### Operar vectores 
+
+Podemos operar vectores contra valores numéricos o con otros vectores. En la siguiente tabla se mostrarán las operaciones básicas que se pueden hacer con vectores.
+
+Operaciones | Sintaxis 
+:--------:|:-----------:|:----------|
+Adición | + |
+Sustracción | - |
+Dividir | / |
+Producto Escalar| %*% |
+Producto de Elementos | * |
+Suma de Elementos |` sum()` |
+
+Por ejemplo, se asigna dos décimas a la prueba 1  para cada estudiantes.
+```{r}
+Prueba_1 + 2
+```
+
+Se resta 5 décimas a las pruebas 2 para cada estudiante.
+```{r}
+Prueba_2 - 5
+```
+
+Se quiere saber cuánto suman las dos notas por estudiante.
+```{r}
+Prueba_1 + Prueba_2
+```
+
+Como se observa se sumaron las primeras notas y para obtener las notas modificadas se realiza lo siguiente. 
+
+```{r}
+# se cambia las notas en los vectores con la nueva asignacion  
+Prueba_1 <- Prueba_1 + 2
+Prueba_2 <- Prueba_2 - 5
+
+```
+
+```{r}
+Prueba_1 + Prueba_2
+```
+Queremos saber la suma de las notas de la prueba 1.
+```{r}
+sum(Prueba_1)
+```
+
+Ahora queremos saber el promedio entre las dos pruebas por cada estudiante.
+
+#### Operaciones Estadisticas 
+
+Operaciones | Sintaxis 
+----------|------------
+Media	| `mean()` |
+Mediana |	`median()` |
+Máximo	| `max()` |
+Mínimo	| `min()` |
+Cuantiles	| `quantile()` |
+Producto	| `prod()` |
+Suma Acumulada	| `cumsum()` |
+Producto Acumulado | `cumprod()` |
+Diferencias |	`diff()` |
+Coeficiente de Correlación | `cor()` |
+
+Ahora si queremos calcular la media aritmética o promedio de la prueba 1, se tendrá que utilizar el comando `mean()`.
+
+```{r}
+mean(Prueba_1)
+
+```
+
+Queremos ver la nota mínima y máxima de la prueba 2. 
+```{r}
+min(Prueba_2)
+```
+```{r}
+max(Prueba_2)
+```
+
+Si queremos realizar una suma acumulada de la prueba 1, se utiliza el comando `cumsum()`, lo que hace es sumar los dos primeros elemento; este resultado lo suma al tercer elemento y así sucesivamente.
+
+```{r}
+cumsum(Prueba_1)
+```
+
+#### Orden de los vectores 
+
+Si queremos ordenar los vectores de formas creciente usaremos la función `sort()`.
+```{r}
+sort(Prueba_1)
+```
+La función `rev()` coloca las componentes de un vector en orden inverso a como han sido introducidas.
+```{r}
+rev(Prueba_1)
+```
+
+También se puede realizar de la siguente forma agregamos la decreasing= TRUE para hacerlo decreciente.
+```{r}
+sort(Prueba_1, decreasing = TRUE)
+```
+
+Si queremos invertir el orden del vector prueba 1.
+```{r}
+rev(Prueba_1)
+```
+
+Ahora si queremos saber el tipo de clase que es el vector 
+```{r}
+class(Prueba_1)
+```
+```{r}
+class(Nombre)
+```
+Un vector tiene el mismo tipo que los datos que contiene.
+
+```{r}
+Prueba_1>71
+```
+
+```{r}
+Prueba_1<71
+```
+```{r}
+Prueba_1 == 42
+```
+
+### Matrices 
+
+Una matriz R no es más que un vector que cuenta con un atributo llamado dim indicando el número de filas y columnas de la matriz. Se trata, por tanto, de una estructura de datos en la que todos los elementos han de ser del mismo tipo. Podemos
+crear una matriz a partir de un vector, asi como indicando el número de filas y columnas dejando todos sus elementos vacíos.
+
+Ahora crearemos una matrix que contenga números del 4 al 55 que tenga 8 columas y 7 filas
+```{r}
+Matriz <- matrix(4:55,ncol=8) # Dos formas de generar exactamente
+Matriz <- matrix(4:55,nrow=7) # la misma matriz
+Matriz
+```
+la función `length()` devuelve el número de
+elementos de una matriz.
+
+```{r}
+length(Matriz) 
+```
+Para conocer el número de filas y columnas podemos usar
+las función `nrow()`,`ncol()` y `dim()`.
+```{r}
+nrow(Matriz)
+```
+```{r}
+dim(Matriz)
+```
+si queremos nombrar las columnas  y filas de la matriz usamos la funciones `colnames()` y `rownomes()` respectivamemente. 
+```{r}
+colnames(Matriz) <- c('Semana1','Semana2','Semana3',  'Semana4','Semana5', 'Semana6', 'Semana7', 'Semana8')
+Matriz
+```
+
+### Data frames
+El data frame es seguramente el tipo de dato más utilizado en R, el  data frame está compuesto de múltiples columnas y filas, como una matriz, pero cada columna puede ser un tipo distinto. 
+
+Ahora con las anteriores variables de las notas de los alumnos crearemos un data frame con función `data.frame ()`.
+```{r}
+lista_alum <- data.frame(Nombre, Apellido, Prueba_1, Prueba_2)
+lista_alum
+```
+
+Veremos el número de observaciones con la función `nrow()`.
+```{r}
+nrow(lista_alum)
+```
+
+Nombres de las columnas con la función `names()`.
+```{r}
+names(lista_alum)
+```
+
+El tipo de caracter que poseen las columnas.
+```{r}
+str(lista_alum)
+```
+
+
+
+<div/>
+

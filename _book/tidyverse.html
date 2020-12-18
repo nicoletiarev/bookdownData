@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Tidyverse | R Notebook</title>
+  <meta name="description" content="4 Tidyverse | R Notebook" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Tidyverse | R Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Tidyverse | R Notebook" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lenguaje.html"/>
+<link rel="next" href="analisis-de-datos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.15/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> que es?</a></li>
+<li class="chapter" data-level="2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html"><i class="fa fa-check"></i><b>2</b> Conceptos Básicos</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#instalación"><i class="fa fa-check"></i><b>2.1</b> Instalación</a></li>
+<li class="chapter" data-level="2.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-consola-de-r"><i class="fa fa-check"></i><b>2.2</b> La consola de R</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script"><i class="fa fa-check"></i><b>2.2.1</b> Crear un script</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#r--cloud-plataforma-online-de-r-studio"><i class="fa fa-check"></i><b>2.3</b> R- cloud, plataforma online de R-Studio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script-1"><i class="fa fa-check"></i><b>2.3.1</b> Crear un script</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lenguaje.html"><a href="lenguaje.html"><i class="fa fa-check"></i><b>3</b> Lenguaje</a><ul>
+<li class="chapter" data-level="3.1" data-path="lenguaje.html"><a href="lenguaje.html#tipos-de-datos"><i class="fa fa-check"></i><b>3.1</b> Tipos de datos</a></li>
+<li class="chapter" data-level="3.2" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-control"><i class="fa fa-check"></i><b>3.2</b> Estructura de control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="lenguaje.html"><a href="lenguaje.html#sentencias-de-control---if-else"><i class="fa fa-check"></i><b>3.2.1</b> Sentencias de Control - If / Else</a></li>
+<li class="chapter" data-level="3.2.2" data-path="lenguaje.html"><a href="lenguaje.html#control-de-flujo"><i class="fa fa-check"></i><b>3.2.2</b> Control de Flujo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-datos"><i class="fa fa-check"></i><b>3.3</b> Estructura de datos</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="lenguaje.html"><a href="lenguaje.html#variables"><i class="fa fa-check"></i><b>3.3.1</b> Variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="lenguaje.html"><a href="lenguaje.html#vectores"><i class="fa fa-check"></i><b>3.3.2</b> Vectores</a></li>
+<li class="chapter" data-level="3.3.3" data-path="lenguaje.html"><a href="lenguaje.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="lenguaje.html"><a href="lenguaje.html#data-frames"><i class="fa fa-check"></i><b>3.3.4</b> Data frames</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>4</b> Tidyverse</a><ul>
+<li class="chapter" data-level="4.1" data-path="tidyverse.html"><a href="tidyverse.html#ggplot2"><i class="fa fa-check"></i><b>4.1</b> ggplot2</a></li>
+<li class="chapter" data-level="4.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="tidyverse.html"><a href="tidyverse.html#agregar-nuevas-columnas-con-mutate."><i class="fa fa-check"></i><b>4.2.1</b> Agregar nuevas columnas con <code>mutate()</code>.</a></li>
+<li class="chapter" data-level="4.2.2" data-path="tidyverse.html"><a href="tidyverse.html#seleccionar-columnas-con-select."><i class="fa fa-check"></i><b>4.2.2</b> Seleccionar columnas con <code>select()</code>.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="tidyverse.html"><a href="tidyverse.html#filtrar-filas-con-filter."><i class="fa fa-check"></i><b>4.2.3</b> Filtrar filas con <code>filter()</code>.</a></li>
+<li class="chapter" data-level="4.2.4" data-path="tidyverse.html"><a href="tidyverse.html#organizar-filas-con-arrange"><i class="fa fa-check"></i><b>4.2.4</b> Organizar filas con <code>arrange()</code></a></li>
+<li class="chapter" data-level="4.2.5" data-path="tidyverse.html"><a href="tidyverse.html#elija-filas-usando-su-posición-con-slice"><i class="fa fa-check"></i><b>4.2.5</b> Elija filas usando su posición con <code>slice()</code></a></li>
+<li class="chapter" data-level="4.2.6" data-path="tidyverse.html"><a href="tidyverse.html#cambiar-el-orden-de-las-columnas-con-relocate"><i class="fa fa-check"></i><b>4.2.6</b> Cambiar el orden de las columnas con <code>relocate()</code></a></li>
+<li class="chapter" data-level="4.2.7" data-path="tidyverse.html"><a href="tidyverse.html#resumir-valores-con-summarise"><i class="fa fa-check"></i><b>4.2.7</b> Resumir valores con <code>summarise()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>4.3</b> tidyr</a></li>
+<li class="chapter" data-level="4.4" data-path="tidyverse.html"><a href="tidyverse.html#readr"><i class="fa fa-check"></i><b>4.4</b> readr</a></li>
+<li class="chapter" data-level="4.5" data-path="tidyverse.html"><a href="tidyverse.html#purrr"><i class="fa fa-check"></i><b>4.5</b> purrr</a></li>
+<li class="chapter" data-level="4.6" data-path="tidyverse.html"><a href="tidyverse.html#tibble"><i class="fa fa-check"></i><b>4.6</b> tibble</a></li>
+<li class="chapter" data-level="4.7" data-path="tidyverse.html"><a href="tidyverse.html#stringr"><i class="fa fa-check"></i><b>4.7</b> stringr</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-caracteres"><i class="fa fa-check"></i><b>4.7.1</b> manipulación de caracteres</a></li>
+<li class="chapter" data-level="4.7.2" data-path="tidyverse.html"><a href="tidyverse.html#especio-en-blanco"><i class="fa fa-check"></i><b>4.7.2</b> Especio en blanco</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="tidyverse.html"><a href="tidyverse.html#forcats"><i class="fa fa-check"></i><b>4.8</b> forcats</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="tidyverse.html"><a href="tidyverse.html#sensible-a-la-configuración-regional"><i class="fa fa-check"></i><b>4.8.1</b> Sensible a la configuración regional</a></li>
+<li class="chapter" data-level="4.8.2" data-path="tidyverse.html"><a href="tidyverse.html#la-coincidencia-de-patrones"><i class="fa fa-check"></i><b>4.8.2</b> La coincidencia de patrones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="tidyverse.html"><a href="tidyverse.html#forcats-1"><i class="fa fa-check"></i><b>4.9</b> forcats</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Analisis de datos</a><ul>
+<li class="chapter" data-level="5.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#cargar-de-datos"><i class="fa fa-check"></i><b>5.1</b> Cargar de datos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#en-r-studio"><i class="fa fa-check"></i><b>5.1.1</b> En R-Studio</a></li>
+<li class="chapter" data-level="5.1.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#r--cloud"><i class="fa fa-check"></i><b>5.1.2</b> R- cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#tipos-de-datos-en-tibble"><i class="fa fa-check"></i><b>5.2</b> tipos de datos en tibble</a></li>
+<li class="chapter" data-level="5.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#combinar-base-de-datos"><i class="fa fa-check"></i><b>5.3</b> Combinar base de datos</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#mutating-joins-uniones-de-trasformación"><i class="fa fa-check"></i><b>5.3.1</b> mutating joins (Uniones de trasformación)</a></li>
+<li class="chapter" data-level="5.3.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-exteriores"><i class="fa fa-check"></i><b>5.3.2</b> Uniones exteriores</a></li>
+<li class="chapter" data-level="5.3.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-de-filtros"><i class="fa fa-check"></i><b>5.3.3</b> Uniones de filtros</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-la-data"><i class="fa fa-check"></i><b>5.4</b> exploración de la data</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#inspección-de-una-tabla"><i class="fa fa-check"></i><b>5.4.1</b> Inspección de una tabla</a></li>
+<li class="chapter" data-level="5.4.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#selección-de-filas-y-columnas"><i class="fa fa-check"></i><b>5.4.2</b> Selección de filas y columnas</a></li>
+<li class="chapter" data-level="5.4.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-las-variables"><i class="fa fa-check"></i><b>5.4.3</b> Exploración de las variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>6</b> Machine Learning</a><ul>
+<li class="chapter" data-level="6.1" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-supervisados"><i class="fa fa-check"></i><b>6.1</b> Algoritmo Supervisados</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="machine-learning.html"><a href="machine-learning.html#vecinos-mas-cercanosknn"><i class="fa fa-check"></i><b>6.1.1</b> Vecinos mas cercanos(KNN)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="machine-learning.html"><a href="machine-learning.html#regresiones-logistica"><i class="fa fa-check"></i><b>6.1.2</b> Regresiones logistica</a></li>
+<li class="chapter" data-level="6.1.3" data-path="machine-learning.html"><a href="machine-learning.html#modelo-de-máquina-de-soporte-vectorial-svm"><i class="fa fa-check"></i><b>6.1.3</b> Modelo de máquina de soporte vectorial (SVM)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-no-supervisados"><i class="fa fa-check"></i><b>6.2</b> Algoritmo no supervisados</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="machine-learning.html"><a href="machine-learning.html#k-means"><i class="fa fa-check"></i><b>6.2.1</b> K-Means</a></li>
+<li class="chapter" data-level="6.2.2" data-path="machine-learning.html"><a href="machine-learning.html#pca"><i class="fa fa-check"></i><b>6.2.2</b> PCA</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidyverse" class="section level1">
+<h1><span class="header-section-number">4</span> Tidyverse</h1>
+<div style="text-align: justify">
+
+<p>Tidyverse es un conjunto de paquetes en R diseñados para ciencia de datos, el cual nos ayuda en todo el proceso de la importación, transformación, visualizar y modelación datos. Una de las principales ventajas es que tienen estos paquetes que comparten nombre y estructuras comunes., esto quiere decir que todos los nombres están en minúscula o que utilizan la barra baja para llamar a las funciones.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co">#install.packages(&#39;tidyverse&#39;)</span></a>
+<a class="sourceLine" id="cb72-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Algunas librería que contiene disponible <strong>tidyverse</strong> son los siguientes:</p>
+<ul>
+<li>ggplot2</li>
+<li>dplyr</li>
+<li>tidyr</li>
+<li>readr</li>
+<li>purrr</li>
+<li>tibble</li>
+<li>stringr</li>
+<li>forcats</li>
+</ul>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">4.1</span> ggplot2</h2>
+<p>Esta Liberia nos ayuda a construir los gráficos para la data frame y se basa en la idea que cualquier gráfica se puede construir usando los tres componentes: datos, coordenadas y objetos geométricos (geoms), esto es llamado como “gramática de las gráficas”. Para más información vea el siguiente enlace.</p>
+<p>Cheatsheet: <a href="https://rstudio.com/wp-content/uploads/2016/12/ggplot2-cheatsheet-2.1-Spanish.pdf" class="uri">https://rstudio.com/wp-content/uploads/2016/12/ggplot2-cheatsheet-2.1-Spanish.pdf</a></p>
+</div>
+<div id="dplyr" class="section level2">
+<h2><span class="header-section-number">4.2</span> dplyr</h2>
+<p>la librería <strong>dplyr</strong> es una gramática de manipulación de datos que proporciona verbos que ayudan a la manipulación de datos algunos funciones más importante son las siguientes:</p>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">CODIGO</th>
+<th align="left">DESCRIPCIÓN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>mutate()</code></td>
+<td align="left">Agrega nuevas variables que son funciones de variables existentes</td>
+</tr>
+<tr class="even">
+<td align="center"><code>select()</code></td>
+<td align="left">Elige variables en función de sus nombres.</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>filter()</code></td>
+<td align="left">Filtra datos basados en sus valores.</td>
+</tr>
+<tr class="even">
+<td align="center"><code>summarise()</code></td>
+<td align="left">Reduce varios valores a un solo resumen.</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>arrange()</code></td>
+<td align="left">Cambia el orden de las filas.</td>
+</tr>
+<tr class="even">
+<td align="center"><code>slice()</code></td>
+<td align="left">Elige filas según la ubicación.</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>relocate()</code></td>
+<td align="left">Cambia el orden de las columnas.</td>
+</tr>
+</tbody>
+</table>
+<p>Todos ellos se combinan de forma natural con <code>group_by()</code>.</p>
+<p>Para más información vea el siguiente link. Cheatsheet :
+<a href="https://rstudio.com/wp-content/uploads/2015/03/data-wrangling-spanish.pdf" class="uri">https://rstudio.com/wp-content/uploads/2015/03/data-wrangling-spanish.pdf</a></p>
+<p>A continuación a traves de la base de datos de Airbnb new york</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">airbnb</a></code></pre></div>
+<pre><code>##             id neighbourhood_group       room_type price
+## 48886 36482809           Manhattan    Private room    75
+## 48887 36483010           Manhattan Entire home/apt   200
+## 48888 36483152            Brooklyn Entire home/apt   170
+## 48889 36484087           Manhattan    Private room   125
+## 48890 36484363              Queens    Private room    65
+## 48891 36484665            Brooklyn    Private room    70
+## 48892 36485057            Brooklyn    Private room    40
+## 48893 36485431           Manhattan Entire home/apt   115
+## 48894 36485609           Manhattan     Shared room    55
+## 48895 36487245           Manhattan    Private room    90</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">str</span>(airbnb)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10 obs. of  4 variables:
+##  $ id                 : int  36482809 36483010 36483152 36484087 36484363 36484665 36485057 36485431 36485609 36487245
+##  $ neighbourhood_group: Factor w/ 5 levels &quot;Bronx&quot;,&quot;Brooklyn&quot;,..: 3 3 2 3 4 2 2 3 3 3
+##  $ room_type          : Factor w/ 3 levels &quot;Entire home/apt&quot;,..: 2 1 1 2 2 2 2 1 3 2
+##  $ price              : int  75 200 170 125 65 70 40 115 55 90</code></pre>
+<div id="agregar-nuevas-columnas-con-mutate." class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Agregar nuevas columnas con <code>mutate()</code>.</h3>
+<p>Es útil agregar nuevas columnas que sean funciones de columnas existentes.Con la función <code>mutate()</code> sirve más que nada para realizar operaciones matemáticas.</p>
+<p>por ejemplo, queremos crear una columna de comisión con uno 12%</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">comision =</span> price <span class="op">*</span><span class="st"> </span><span class="fl">0.12</span>)</a></code></pre></div>
+<pre><code>##          id neighbourhood_group       room_type price comision
+## 1  36482809           Manhattan    Private room    75      9.0
+## 2  36483010           Manhattan Entire home/apt   200     24.0
+## 3  36483152            Brooklyn Entire home/apt   170     20.4
+## 4  36484087           Manhattan    Private room   125     15.0
+## 5  36484363              Queens    Private room    65      7.8
+## 6  36484665            Brooklyn    Private room    70      8.4
+## 7  36485057            Brooklyn    Private room    40      4.8
+## 8  36485431           Manhattan Entire home/apt   115     13.8
+## 9  36485609           Manhattan     Shared room    55      6.6
+## 10 36487245           Manhattan    Private room    90     10.8</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1">airbnb </a></code></pre></div>
+<pre><code>##             id neighbourhood_group       room_type price
+## 48886 36482809           Manhattan    Private room    75
+## 48887 36483010           Manhattan Entire home/apt   200
+## 48888 36483152            Brooklyn Entire home/apt   170
+## 48889 36484087           Manhattan    Private room   125
+## 48890 36484363              Queens    Private room    65
+## 48891 36484665            Brooklyn    Private room    70
+## 48892 36485057            Brooklyn    Private room    40
+## 48893 36485431           Manhattan Entire home/apt   115
+## 48894 36485609           Manhattan     Shared room    55
+## 48895 36487245           Manhattan    Private room    90</code></pre>
+</div>
+<div id="seleccionar-columnas-con-select." class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Seleccionar columnas con <code>select()</code>.</h3>
+<p>La función <code>select()</code> le permite acercarse rápidamente a un subconjunto.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>( id, room_type, neighbourhood_group)</a></code></pre></div>
+<pre><code>##             id       room_type neighbourhood_group
+## 48886 36482809    Private room           Manhattan
+## 48887 36483010 Entire home/apt           Manhattan
+## 48888 36483152 Entire home/apt            Brooklyn
+## 48889 36484087    Private room           Manhattan
+## 48890 36484363    Private room              Queens
+## 48891 36484665    Private room            Brooklyn
+## 48892 36485057    Private room            Brooklyn
+## 48893 36485431 Entire home/apt           Manhattan
+## 48894 36485609     Shared room           Manhattan
+## 48895 36487245    Private room           Manhattan</code></pre>
+<p>Una forma contraria de usarla es agregando <code>!</code> que nos dices que queremos sacar esas variables de la data .</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">!</span>( id<span class="op">:</span>room_type<span class="op">:</span>neighbourhood_group))</a></code></pre></div>
+<pre><code>## Warning in x:y: numerical expression has 3 elements: only the first used</code></pre>
+<pre><code>##             room_type price
+## 48886    Private room    75
+## 48887 Entire home/apt   200
+## 48888 Entire home/apt   170
+## 48889    Private room   125
+## 48890    Private room    65
+## 48891    Private room    70
+## 48892    Private room    40
+## 48893 Entire home/apt   115
+## 48894     Shared room    55
+## 48895    Private room    90</code></pre>
+<p>Hay una serie de funciones auxiliares se pueden utilizar dentro <code>select()</code>, como <code>starts_with()</code>, <code>ends_with()</code>, <code>matches()</code>y <code>contains()</code>.</p>
+</div>
+<div id="filtrar-filas-con-filter." class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Filtrar filas con <code>filter()</code>.</h3>
+<p>Esta función nos permite seleccionar un subconjunto de filas en un marco de datos. Usaremos <code>%&gt;%</code> para concatenar la data frame luego dentro de la función podremos el nombre de las variable que deseamos buscar o filtrar luego ponemos <code>==</code> todas la observaciones que tenga Brooklyn y para realizar el segundo filtro se separa con una coma para luego repetir lo anteriormente mencionado.</p>
+<p>Ahora queremos saber los alojamientos que se encuentra en la Brooklyn con habitación Entire home/apt.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(neighbourhood_group  <span class="op">==</span><span class="st"> &quot;Brooklyn&quot;</span>, room_type <span class="op">==</span><span class="st"> &quot;Entire home/apt&quot;</span>)</a></code></pre></div>
+<pre><code>##         id neighbourhood_group       room_type price
+## 1 36483152            Brooklyn Entire home/apt   170</code></pre>
+<p>Un equivalente a lo anterior sin usar la función <code>filter()</code>sería el siguiente código.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1">airbnb[airbnb<span class="op">$</span>neighbourhood_group  <span class="op">==</span><span class="st"> &quot;Brooklyn&quot;</span>, airbnb<span class="op">$</span>room_type <span class="op">==</span><span class="st"> &quot;Entire home/apt&quot;</span>]</a></code></pre></div>
+</div>
+<div id="organizar-filas-con-arrange" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Organizar filas con <code>arrange()</code></h3>
+<p>La funciona <code>arrange()</code> selecciona filas ylas reordena, para ello se necesita un marco de datos y un conjunto de nombres de columna para ordenar.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(neighbourhood_group , room_type)</a></code></pre></div>
+<pre><code>##          id neighbourhood_group       room_type price
+## 1  36483152            Brooklyn Entire home/apt   170
+## 2  36484665            Brooklyn    Private room    70
+## 3  36485057            Brooklyn    Private room    40
+## 4  36483010           Manhattan Entire home/apt   200
+## 5  36485431           Manhattan Entire home/apt   115
+## 6  36482809           Manhattan    Private room    75
+## 7  36484087           Manhattan    Private room   125
+## 8  36487245           Manhattan    Private room    90
+## 9  36485609           Manhattan     Shared room    55
+## 10 36484363              Queens    Private room    65</code></pre>
+<p>Esta se suele usar con la función <code>desc()</code>para ordenar de forma descendente.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>( <span class="kw">desc</span>(room_type))</a></code></pre></div>
+<pre><code>##          id neighbourhood_group       room_type price
+## 1  36485609           Manhattan     Shared room    55
+## 2  36482809           Manhattan    Private room    75
+## 3  36484087           Manhattan    Private room   125
+## 4  36484363              Queens    Private room    65
+## 5  36484665            Brooklyn    Private room    70
+## 6  36485057            Brooklyn    Private room    40
+## 7  36487245           Manhattan    Private room    90
+## 8  36483010           Manhattan Entire home/apt   200
+## 9  36483152            Brooklyn Entire home/apt   170
+## 10 36485431           Manhattan Entire home/apt   115</code></pre>
+</div>
+<div id="elija-filas-usando-su-posición-con-slice" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Elija filas usando su posición con <code>slice()</code></h3>
+<p>Esta función permite indexar filas por sus ubicaciones (enteras). Le permite seleccionar, eliminar y duplicar filas. por ejemplo, si queremos saber los caracteres de los números de filas 6 al 13.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">6</span><span class="op">:</span><span class="dv">13</span>)</a></code></pre></div>
+<pre><code>##         id neighbourhood_group       room_type price
+## 1 36484665            Brooklyn    Private room    70
+## 2 36485057            Brooklyn    Private room    40
+## 3 36485431           Manhattan Entire home/apt   115
+## 4 36485609           Manhattan     Shared room    55
+## 5 36487245           Manhattan    Private room    90</code></pre>
+<p>Otras variaciones son <code>slice_head()</code> y <code>slice_tail()</code> seleccione la primera o la última fila.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_tail</span>(<span class="dt">n =</span> <span class="dv">6</span>)</a></code></pre></div>
+<pre><code>##         id neighbourhood_group       room_type price
+## 1 36484363              Queens    Private room    65
+## 2 36484665            Brooklyn    Private room    70
+## 3 36485057            Brooklyn    Private room    40
+## 4 36485431           Manhattan Entire home/apt   115
+## 5 36485609           Manhattan     Shared room    55
+## 6 36487245           Manhattan    Private room    90</code></pre>
+<p><code>slice_sample()</code>selecciona filas al azar.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_tail</span>(<span class="dt">n =</span> <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>##         id neighbourhood_group       room_type price
+## 1 36484665            Brooklyn    Private room    70
+## 2 36485057            Brooklyn    Private room    40
+## 3 36485431           Manhattan Entire home/apt   115
+## 4 36485609           Manhattan     Shared room    55
+## 5 36487245           Manhattan    Private room    90</code></pre>
+<p>Con las funciones <code>slice_min()</code> y <code>slice_max()</code> selecciona las filas con los valores más altos o más bajos de una variable.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice_max</span>(price, <span class="dt">n =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##         id neighbourhood_group       room_type price
+## 1 36483010           Manhattan Entire home/apt   200
+## 2 36483152            Brooklyn Entire home/apt   170
+## 3 36484087           Manhattan    Private room   125</code></pre>
+</div>
+<div id="cambiar-el-orden-de-las-columnas-con-relocate" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Cambiar el orden de las columnas con <code>relocate()</code></h3>
+<p>Utilice una sintaxis similar select()a la de mover bloques de columnas a la vez.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">relocate</span>(price<span class="op">:</span>id)</a></code></pre></div>
+<pre><code>##       price       room_type neighbourhood_group       id
+## 48886    75    Private room           Manhattan 36482809
+## 48887   200 Entire home/apt           Manhattan 36483010
+## 48888   170 Entire home/apt            Brooklyn 36483152
+## 48889   125    Private room           Manhattan 36484087
+## 48890    65    Private room              Queens 36484363
+## 48891    70    Private room            Brooklyn 36484665
+## 48892    40    Private room            Brooklyn 36485057
+## 48893   115 Entire home/apt           Manhattan 36485431
+## 48894    55     Shared room           Manhattan 36485609
+## 48895    90    Private room           Manhattan 36487245</code></pre>
+</div>
+<div id="resumir-valores-con-summarise" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> Resumir valores con <code>summarise()</code></h3>
+<p>El último verbo es summarise(). Colapsa un marco de datos en una sola fila.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">airbnb <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">price_mean =</span> <span class="kw">mean</span>(price))</a></code></pre></div>
+<pre><code>##   price_mean
+## 1      100.5</code></pre>
+</div>
+</div>
+<div id="tidyr" class="section level2">
+<h2><span class="header-section-number">4.3</span> tidyr</h2>
+<p>la libreria <strong>tidyr</strong> crear datos ordenados . Los datos ordenados son datos donde:</p>
+<ul>
+<li>Cada columna es variable.</li>
+<li>Cada fila es una observación.</li>
+<li>Cada celda es un valor único.</li>
+</ul>
+<p>Tidy data describe una forma estándar de almacenar datos que se utiliza siempre que sea posible en tidyverse . Si se asegura de que sus datos estén ordenados, pasará menos tiempo luchando con las herramientas y más tiempo trabajando en su análisis.</p>
+</div>
+<div id="readr" class="section level2">
+<h2><span class="header-section-number">4.4</span> readr</h2>
+<p>El objetivo de readr es proporcionar una forma rápida y sencilla de leer datos con formato csv, tsv y fwf . Está diseñado para analizar de manera flexible muchos tipos de datos .</p>
+<p>readr admite siete formatos de archivo con siete read_funciones:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>CODIGO</strong></th>
+<th align="left"><strong>DESCRIPCIÓN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>read_csv()</code></td>
+<td align="left">archivos separados por comas (CSV)</td>
+</tr>
+<tr class="even">
+<td align="center"><code>read_tsv()</code></td>
+<td align="left">archivos separados por tabulaciones</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>read_delim()</code></td>
+<td align="left">archivos delimitados generales</td>
+</tr>
+<tr class="even">
+<td align="center"><code>read_fwf()</code></td>
+<td align="left">archivos de ancho fijo</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>read_table()</code></td>
+<td align="left">archivos tabulares donde las columnas están separadas por espacios en blanco</td>
+</tr>
+<tr class="even">
+<td align="center"><code>read_log()</code></td>
+<td align="left">archivos de registro web</td>
+</tr>
+</tbody>
+</table>
+<p>Para más información vea el siguiente link: <a href="https://readr.tidyverse.org/" class="uri">https://readr.tidyverse.org/</a></p>
+</div>
+<div id="purrr" class="section level2">
+<h2><span class="header-section-number">4.5</span> purrr</h2>
+<p>La liberia purrr mejora el conjunto de herramientas de programación funcional (FP) de R al proporcionar un conjunto completo y consistente de herramientas para trabajar con funciones y vectores y proporciona las funciones <code>map()</code>.</p>
+<p>Para más información vea el siguiente link: <a href="https://github.com/rstudio/cheatsheets/blob/master/purrr.pdf" class="uri">https://github.com/rstudio/cheatsheets/blob/master/purrr.pdf</a></p>
+</div>
+<div id="tibble" class="section level2">
+<h2><span class="header-section-number">4.6</span> tibble</h2>
+<p>Un tibble , o tbl_df, Los tibbles son data frames, pero modifican algunas características antiguas para hacer su uso mas más fácil. La mayoría de las veces usaremos el término tibble y data frame de manera indistinta; cuando queramos referirnos de manera particular a la data frame que viene incluido en R lo llamaremos <code>data.frame</code>.</p>
+</div>
+<div id="stringr" class="section level2">
+<h2><span class="header-section-number">4.7</span> stringr</h2>
+<p>Con la librería stringr Hay cuatro principales de funciones, el primero es la manipulación de caracteres; estas funciones le permiten manipular caracteres individuales dentro de las cadenas en vectores de caracteres. La segunda son las herramientas de espacios en blanco para agregar, eliminar y manipular espacios en blanco, el tercero son las operaciones sensibles a la configuración regional cuyas operaciones variarán de una ubicación a otra y por último son las funciones de coincidencia de patrones. .</p>
+<p>Algunas funciones destacadas son las siguientes.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">library</span>(stringr)</a></code></pre></div>
+<div id="manipulación-de-caracteres" class="section level3">
+<h3><span class="header-section-number">4.7.1</span> manipulación de caracteres</h3>
+<p>Podemos obtener la longitud longitud de la cadena con la función <code>str_length()</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"> <span class="kw">str_length</span>(<span class="st">&quot;hola&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Se puede acceder a una letra específica con la función <code>str_sub()</code> colocando la variable y luego la posición que deseamos buscar en este caso la 2.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1">A &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;hello&quot;</span> )</a>
+<a class="sourceLine" id="cb108-2" title="2"></a>
+<a class="sourceLine" id="cb108-3" title="3"><span class="kw">str_sub</span>(A, <span class="dv">2</span>, <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;o&quot; &quot;e&quot;</code></pre>
+<p>Estos nos sirven también para modificar la cadena por ejemplo queremos remplazar la o y la e por una X .</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">str_sub</span>(A, <span class="dv">2</span>, <span class="dv">2</span>) &lt;-<span class="st"> &quot;X&quot;</span> </a>
+<a class="sourceLine" id="cb110-2" title="2">A</a></code></pre></div>
+<pre><code>## [1] &quot;hXla&quot;  &quot;hXllo&quot;</code></pre>
+<p>También podemos duplicar las cadenas con la función <code>str_dup()</code>.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">str_dup</span>(A, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</a></code></pre></div>
+<pre><code>## [1] &quot;hXlahXla&quot;   &quot;hXllohXllo&quot;</code></pre>
+</div>
+<div id="especio-en-blanco" class="section level3">
+<h3><span class="header-section-number">4.7.2</span> Especio en blanco</h3>
+<p>Con la función <code>str_pad()</code> rellena una cuerda a una longitud fija agregando espacios en blanco adicionales a la izquierda, derecha o ambos lados.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">str_pad</span>(A, <span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;      hXla&quot; &quot;     hXllo&quot;</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1"><span class="kw">str_pad</span>(A, <span class="dv">10</span>, <span class="st">&quot;both&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;   hXla   &quot; &quot;  hXllo   &quot;</code></pre>
+<p>Entonces, si desea asegurarse de que todas las cadenas tengan la misma longitud, combine <code>str_pad()</code> y <code>str_trunc()</code>:</p>
+</div>
+</div>
+<div id="forcats" class="section level2">
+<h2><span class="header-section-number">4.8</span> forcats</h2>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">A <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-2" title="2"><span class="st">  </span><span class="kw">str_trunc</span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-3" title="3"><span class="st">  </span><span class="kw">str_pad</span>(<span class="dv">10</span>, <span class="st">&quot;right&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;hXla      &quot; &quot;hXllo     &quot;</code></pre>
+<p>Lo contrario de lo anterior es la función <code>str_trim()</code> que elimina los espacios en blanco</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">A &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;  hola  &quot;</span>, <span class="st">&quot;  hello  &quot;</span> )</a>
+<a class="sourceLine" id="cb120-2" title="2"><span class="kw">str_trim</span>(A)</a></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;  &quot;hello&quot;</code></pre>
+<p>Agregaremos left para indicar que dirección eliminar</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="kw">str_trim</span>(A, <span class="st">&quot;left&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;hola  &quot;  &quot;hello  &quot;</code></pre>
+<p>Puede utilizar la función <code>str_wrap()</code> para modificar los espacios en blanco existentes para ajustar un párrafo de texto, de modo que la longitud de cada línea sea lo más similar posible.</p>
+<div id="sensible-a-la-configuración-regional" class="section level3">
+<h3><span class="header-section-number">4.8.1</span> Sensible a la configuración regional</h3>
+<p>Si queremos modificar las palabras de pasarla de minúscula a mayúscula se utiliza la función <code>str_to_upper()</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">A &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;hello&quot;</span> )</a>
+<a class="sourceLine" id="cb124-2" title="2">A &lt;-<span class="st"> </span><span class="kw">str_to_upper</span>(A)</a>
+<a class="sourceLine" id="cb124-3" title="3">A</a></code></pre></div>
+<pre><code>## [1] &quot;HOLA&quot;  &quot;HELLO&quot;</code></pre>
+<p>De mayúscula a minúscula.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1"><span class="kw">str_to_title</span>(A)</a></code></pre></div>
+<pre><code>## [1] &quot;Hola&quot;  &quot;Hello&quot;</code></pre>
+<p>Sí queremos ordenar y clasificar la cadena usaremos la función <code>str_order()</code> y <code>str_sort()</code>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">B &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;e&quot;</span>)</a>
+<a class="sourceLine" id="cb128-2" title="2"><span class="kw">str_order</span>(B)</a></code></pre></div>
+<pre><code>## [1] 2 1 3</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="kw">str_sort</span>(B)</a></code></pre></div>
+<pre><code>## [1] &quot;b&quot; &quot;c&quot; &quot;e&quot;</code></pre>
+</div>
+<div id="la-coincidencia-de-patrones" class="section level3">
+<h3><span class="header-section-number">4.8.2</span> La coincidencia de patrones</h3>
+<p>La gran mayoría de funciones de stringr funcionan con patrones, estos están parametrizados por la tarea que realizan y los tipos de patrones que coinciden.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">numeros &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb132-2" title="2">  <span class="st">&quot;celular&quot;</span>, </a>
+<a class="sourceLine" id="cb132-3" title="3">  <span class="st">&quot;219 733 8965&quot;</span>, </a>
+<a class="sourceLine" id="cb132-4" title="4">  <span class="st">&quot;329-293-8753&quot;</span>, </a>
+<a class="sourceLine" id="cb132-5" title="5">  <span class="st">&quot;casa: 579-499-7527; trabajo: 543.355.3679&quot;</span></a>
+<a class="sourceLine" id="cb132-6" title="6">)</a>
+<a class="sourceLine" id="cb132-7" title="7">telefonos &lt;-<span class="st"> &quot;([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})&quot;</span></a></code></pre></div>
+<p>Usaremos la función <code>str_detect()</code> detecta la presencia o ausencia de un patrón y devuelve un vector lógico. Por ejemplo, para saber cuál pertenece a un número telefónico.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">str_detect</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
+<p>Con la función <code>str_subset()</code> devuelve los elementos de un vector de caracteres que coinciden con una expresión regular.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">str_subset</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [1] &quot;219 733 8965&quot;                              &quot;329-293-8753&quot;                              &quot;casa: 579-499-7527; trabajo: 543.355.3679&quot;</code></pre>
+<p>Ahora con la función <code>str_count()</code> cuenta el número de coincidencias, por ejemplo, queremos saber cuántos números de teléfonos existe en la cadena.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">str_count</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [1] 0 1 1 2</code></pre>
+<p>Con la función <code>str_locate()</code> localiza la primera posición de un patrón y devuelve una matriz numérica con columnas al comienzo y al final, por ejemplo, si queremos saber en qué parte de la cadena se encuentra el número de teléfono.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="kw">str_locate</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>##      start end
+## [1,]    NA  NA
+## [2,]     1  12
+## [3,]     1  12
+## [4,]     7  18</code></pre>
+<p>La función <code>str_locate_all()</code> localiza todas las coincidencias, devolviendo una lista de matrices numéricas.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="kw">str_locate_all</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [[1]]
+##      start end
+## 
+## [[2]]
+##      start end
+## [1,]     1  12
+## 
+## [[3]]
+##      start end
+## [1,]     1  12
+## 
+## [[4]]
+##      start end
+## [1,]     7  18
+## [2,]    30  41</code></pre>
+<p>Si queremos extraer el texto correspondiente a la primera coincidencia, devolviendo un vector de caracteres con la función <code>str_extract()</code>.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" title="1"><span class="kw">str_extract</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [1] NA             &quot;219 733 8965&quot; &quot;329-293-8753&quot; &quot;579-499-7527&quot;</code></pre>
+<p>Si queremos ver todos los números telefónicos usaremos la función <code>str_extract_all()</code>.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">str_extract_all</span>(numeros, telefonos)</a></code></pre></div>
+<pre><code>## [[1]]
+## character(0)
+## 
+## [[2]]
+## [1] &quot;219 733 8965&quot;
+## 
+## [[3]]
+## [1] &quot;329-293-8753&quot;
+## 
+## [[4]]
+## [1] &quot;579-499-7527&quot; &quot;543.355.3679&quot;</code></pre>
+<p>Ahora si queremos remplazar los números usaremos la función <code>str_replace()</code> reemplaza el primer patrón coincidente y devuelve un vector de caracteres.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="kw">str_replace</span>(numeros, telefonos, <span class="st">&quot;XXX-XXX-XXXX&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;celular&quot;                                   &quot;XXX-XXX-XXXX&quot;                              &quot;XXX-XXX-XXXX&quot;                             
+## [4] &quot;casa: XXX-XXX-XXXX; trabajo: 543.355.3679&quot;</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1"><span class="kw">str_replace_all</span>(numeros, telefonos, <span class="st">&quot;XXX-XXX-XXXX&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;celular&quot;                                   &quot;XXX-XXX-XXXX&quot;                              &quot;XXX-XXX-XXXX&quot;                             
+## [4] &quot;casa: XXX-XXX-XXXX; trabajo: XXX-XXX-XXXX&quot;</code></pre>
+</div>
+</div>
+<div id="forcats-1" class="section level2">
+<h2><span class="header-section-number">4.9</span> forcats</h2>
+<p>El paquete forcats proporciona un conjunto de herramientas útiles que resuelvan problemas comunes con factores. Los factores son útiles cuando tiene datos categóricos, variables que tienen un conjunto de valores fijo y conocido, y cuando desea mostrar los vectores de caracteres en orden no alfabético.</p>
+<div/>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lenguaje.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analisis-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
