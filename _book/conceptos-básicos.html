@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Conceptos Básicos | R Notebook</title>
-  <meta name="description" content="2 Conceptos Básicos | R Notebook" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <title>2 Conceptos Básicos | _main.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Conceptos Básicos | R Notebook" />
+  <meta property="og:title" content="2 Conceptos Básicos | _main.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Conceptos Básicos | R Notebook" />
+  <meta name="twitter:title" content="2 Conceptos Básicos | _main.utf8" />
   
   
   
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="lenguaje.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,38 +49,31 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.15/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -123,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -135,80 +130,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> que es?</a></li>
-<li class="chapter" data-level="2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html"><i class="fa fa-check"></i><b>2</b> Conceptos Básicos</a><ul>
-<li class="chapter" data-level="2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#instalación"><i class="fa fa-check"></i><b>2.1</b> Instalación</a></li>
-<li class="chapter" data-level="2.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-consola-de-r"><i class="fa fa-check"></i><b>2.2</b> La consola de R</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script"><i class="fa fa-check"></i><b>2.2.1</b> Crear un script</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> nombre del documento</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#lo-que-aprenderás"><i class="fa fa-check"></i><b>1.1</b> Lo que aprenderás</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#cómo-está-organizado-este-libro"><i class="fa fa-check"></i><b>1.2</b> Cómo está organizado este libro</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.3</b> —</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#title-conceptos-básicos"><i class="fa fa-check"></i><b>1.4</b> title: “Conceptos Básicos”</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#r--cloud-plataforma-online-de-r-studio"><i class="fa fa-check"></i><b>2.3</b> R- cloud, plataforma online de R-Studio</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script-1"><i class="fa fa-check"></i><b>2.3.1</b> Crear un script</a></li>
+<li class="chapter" data-level="2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html"><i class="fa fa-check"></i><b>2</b> Conceptos Básicos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-consola-de-r"><i class="fa fa-check"></i><b>2.1</b> La consola de R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script"><i class="fa fa-check"></i><b>2.1.1</b> Crear un script</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#r--cloud-plataforma-online-de-r-studio"><i class="fa fa-check"></i><b>2.2</b> R- cloud, plataforma online de R-Studio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script-1"><i class="fa fa-check"></i><b>2.2.1</b> Crear un script</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#conocimientos-básicos"><i class="fa fa-check"></i><b>2.3</b> Conocimientos básicos</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#qué-es-un-objeto"><i class="fa fa-check"></i><b>2.3.1</b> ¿Qué es un objeto?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-importancia-de-los-nombres"><i class="fa fa-check"></i><b>2.3.2</b> La importancia de los nombres</a></li>
+<li class="chapter" data-level="2.3.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-comentarios-y-titulo"><i class="fa fa-check"></i><b>2.3.3</b> Crear comentarios y titulo</a></li>
+<li class="chapter" data-level="2.3.4" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#conceptos-de-paquetes-y-librerías"><i class="fa fa-check"></i><b>2.3.4</b> Conceptos de Paquetes y librerías</a></li>
+<li class="chapter" data-level="2.3.5" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#memoria-temporal-del-programa"><i class="fa fa-check"></i><b>2.3.5</b> Memoria temporal del programa</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lenguaje.html"><a href="lenguaje.html"><i class="fa fa-check"></i><b>3</b> Lenguaje</a><ul>
+<li class="chapter" data-level="3" data-path="lenguaje.html"><a href="lenguaje.html"><i class="fa fa-check"></i><b>3</b> Lenguaje</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="lenguaje.html"><a href="lenguaje.html#tipos-de-datos"><i class="fa fa-check"></i><b>3.1</b> Tipos de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-control"><i class="fa fa-check"></i><b>3.2</b> Estructura de control</a><ul>
+<li class="chapter" data-level="3.2" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-control"><i class="fa fa-check"></i><b>3.2</b> Estructura de control</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="lenguaje.html"><a href="lenguaje.html#sentencias-de-control---if-else"><i class="fa fa-check"></i><b>3.2.1</b> Sentencias de Control - If / Else</a></li>
 <li class="chapter" data-level="3.2.2" data-path="lenguaje.html"><a href="lenguaje.html#control-de-flujo"><i class="fa fa-check"></i><b>3.2.2</b> Control de Flujo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-datos"><i class="fa fa-check"></i><b>3.3</b> Estructura de datos</a><ul>
+<li class="chapter" data-level="3.3" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-datos"><i class="fa fa-check"></i><b>3.3</b> Estructura de datos</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="lenguaje.html"><a href="lenguaje.html#variables"><i class="fa fa-check"></i><b>3.3.1</b> Variables</a></li>
 <li class="chapter" data-level="3.3.2" data-path="lenguaje.html"><a href="lenguaje.html#vectores"><i class="fa fa-check"></i><b>3.3.2</b> Vectores</a></li>
 <li class="chapter" data-level="3.3.3" data-path="lenguaje.html"><a href="lenguaje.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
 <li class="chapter" data-level="3.3.4" data-path="lenguaje.html"><a href="lenguaje.html#data-frames"><i class="fa fa-check"></i><b>3.3.4</b> Data frames</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>4</b> Tidyverse</a><ul>
-<li class="chapter" data-level="4.1" data-path="tidyverse.html"><a href="tidyverse.html#ggplot2"><i class="fa fa-check"></i><b>4.1</b> ggplot2</a></li>
-<li class="chapter" data-level="4.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="tidyverse.html"><a href="tidyverse.html#agregar-nuevas-columnas-con-mutate."><i class="fa fa-check"></i><b>4.2.1</b> Agregar nuevas columnas con <code>mutate()</code>.</a></li>
-<li class="chapter" data-level="4.2.2" data-path="tidyverse.html"><a href="tidyverse.html#seleccionar-columnas-con-select."><i class="fa fa-check"></i><b>4.2.2</b> Seleccionar columnas con <code>select()</code>.</a></li>
-<li class="chapter" data-level="4.2.3" data-path="tidyverse.html"><a href="tidyverse.html#filtrar-filas-con-filter."><i class="fa fa-check"></i><b>4.2.3</b> Filtrar filas con <code>filter()</code>.</a></li>
-<li class="chapter" data-level="4.2.4" data-path="tidyverse.html"><a href="tidyverse.html#organizar-filas-con-arrange"><i class="fa fa-check"></i><b>4.2.4</b> Organizar filas con <code>arrange()</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="tidyverse.html"><a href="tidyverse.html#elija-filas-usando-su-posición-con-slice"><i class="fa fa-check"></i><b>4.2.5</b> Elija filas usando su posición con <code>slice()</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="tidyverse.html"><a href="tidyverse.html#cambiar-el-orden-de-las-columnas-con-relocate"><i class="fa fa-check"></i><b>4.2.6</b> Cambiar el orden de las columnas con <code>relocate()</code></a></li>
-<li class="chapter" data-level="4.2.7" data-path="tidyverse.html"><a href="tidyverse.html#resumir-valores-con-summarise"><i class="fa fa-check"></i><b>4.2.7</b> Resumir valores con <code>summarise()</code></a></li>
+<li class="chapter" data-level="4" data-path="package-tidyverse.html"><a href="package-tidyverse.html"><i class="fa fa-check"></i><b>4</b> Package Tidyverse</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-readr-para-importar-datos"><i class="fa fa-check"></i><b>4.1</b> library readr para importar datos</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#leer-datos-tabulares"><i class="fa fa-check"></i><b>4.1.1</b> Leer datos tabulares</a></li>
+<li class="chapter" data-level="4.1.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#leer-datos-no-tabulares"><i class="fa fa-check"></i><b>4.1.2</b> Leer datos no tabulares</a></li>
+<li class="chapter" data-level="4.1.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#especificar-el-tipo-de-datos"><i class="fa fa-check"></i><b>4.1.3</b> Especificar el tipo de datos</a></li>
+<li class="chapter" data-level="4.1.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#encoding"><i class="fa fa-check"></i><b>4.1.4</b> Encoding</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>4.3</b> tidyr</a></li>
-<li class="chapter" data-level="4.4" data-path="tidyverse.html"><a href="tidyverse.html#readr"><i class="fa fa-check"></i><b>4.4</b> readr</a></li>
-<li class="chapter" data-level="4.5" data-path="tidyverse.html"><a href="tidyverse.html#purrr"><i class="fa fa-check"></i><b>4.5</b> purrr</a></li>
-<li class="chapter" data-level="4.6" data-path="tidyverse.html"><a href="tidyverse.html#tibble"><i class="fa fa-check"></i><b>4.6</b> tibble</a></li>
-<li class="chapter" data-level="4.7" data-path="tidyverse.html"><a href="tidyverse.html#stringr"><i class="fa fa-check"></i><b>4.7</b> stringr</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-caracteres"><i class="fa fa-check"></i><b>4.7.1</b> manipulación de caracteres</a></li>
-<li class="chapter" data-level="4.7.2" data-path="tidyverse.html"><a href="tidyverse.html#especio-en-blanco"><i class="fa fa-check"></i><b>4.7.2</b> Especio en blanco</a></li>
+<li class="chapter" data-level="4.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-dplyr-para-manipulación-de-datos"><i class="fa fa-check"></i><b>4.2</b> Library dplyr para manipulación de datos</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#funciones-principales"><i class="fa fa-check"></i><b>4.2.1</b> Funciones principales</a></li>
+<li class="chapter" data-level="4.2.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-mutate-para-realizar-operaciones-de-columnas."><i class="fa fa-check"></i><b>4.2.2</b> Función <code>mutate()</code> para realizar operaciones de columnas.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-select."><i class="fa fa-check"></i><b>4.2.3</b> Función <code>select()</code>.</a></li>
+<li class="chapter" data-level="4.2.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-arrange-para-ordenar-observaciones."><i class="fa fa-check"></i><b>4.2.4</b> Función <code>arrange()</code> para ordenar observaciones.</a></li>
+<li class="chapter" data-level="4.2.5" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-slice-para-seleccionar-eliminar-y-duplicar-filas"><i class="fa fa-check"></i><b>4.2.5</b> Función <code>slice()</code> para seleccionar, eliminar y duplicar filas</a></li>
+<li class="chapter" data-level="4.2.6" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-relocate-cambiar-posición-de-las-columnas"><i class="fa fa-check"></i><b>4.2.6</b> Función <code>relocate()</code> cambiar posición de las columnas</a></li>
+<li class="chapter" data-level="4.2.7" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-summarise-para-realizar-operaciones-estadisticas."><i class="fa fa-check"></i><b>4.2.7</b> Función <code>summarise()</code> para realizar operaciones estadisticas.</a></li>
+<li class="chapter" data-level="4.2.8" data-path="package-tidyverse.html"><a href="package-tidyverse.html#funciones-sencundarias"><i class="fa fa-check"></i><b>4.2.8</b> Funciones sencundarias</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="tidyverse.html"><a href="tidyverse.html#forcats"><i class="fa fa-check"></i><b>4.8</b> forcats</a><ul>
-<li class="chapter" data-level="4.8.1" data-path="tidyverse.html"><a href="tidyverse.html#sensible-a-la-configuración-regional"><i class="fa fa-check"></i><b>4.8.1</b> Sensible a la configuración regional</a></li>
-<li class="chapter" data-level="4.8.2" data-path="tidyverse.html"><a href="tidyverse.html#la-coincidencia-de-patrones"><i class="fa fa-check"></i><b>4.8.2</b> La coincidencia de patrones</a></li>
+<li class="chapter" data-level="4.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-tidyr-para-crear-datos-ordenados"><i class="fa fa-check"></i><b>4.3</b> Library tidyr para crear datos ordenados</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#unir-las-columnas-en-pares-clave-valor-con-la-función-gather"><i class="fa fa-check"></i><b>4.3.1</b> Unir las columnas en pares clave-valor con la función <code>gather()</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#distribuya-un-par-clave-valor-en-varias-columnas-con-la-función-spread"><i class="fa fa-check"></i><b>4.3.2</b> Distribuya un par clave-valor en varias columnas con la función <code>spread()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#separar-una-columna-en-varias-columnas-con-la-función-separate"><i class="fa fa-check"></i><b>4.3.3</b> Separar una columna en varias columnas con la función <code>separate()</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#une-varias-columnas-en-una-con-la-función-unite"><i class="fa fa-check"></i><b>4.3.4</b> Une varias columnas en una con la función <code>unite()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="tidyverse.html"><a href="tidyverse.html#forcats-1"><i class="fa fa-check"></i><b>4.9</b> forcats</a></li>
+<li class="chapter" data-level="4.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-stringr-para-la-manipulación-de-las-observaciones."><i class="fa fa-check"></i><b>4.4</b> Library stringr para la manipulación de las observaciones.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#manipulación-de-la-observación"><i class="fa fa-check"></i><b>4.4.1</b> Manipulación de la observación</a></li>
+<li class="chapter" data-level="4.4.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#especio-en-blanco"><i class="fa fa-check"></i><b>4.4.2</b> Especio en blanco</a></li>
+<li class="chapter" data-level="4.4.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#sensible-a-la-configuración-regional"><i class="fa fa-check"></i><b>4.4.3</b> Sensible a la configuración regional</a></li>
+<li class="chapter" data-level="4.4.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#la-coincidencia-de-patrones"><i class="fa fa-check"></i><b>4.4.4</b> La coincidencia de patrones</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Analisis de datos</a><ul>
-<li class="chapter" data-level="5.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#cargar-de-datos"><i class="fa fa-check"></i><b>5.1</b> Cargar de datos</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#en-r-studio"><i class="fa fa-check"></i><b>5.1.1</b> En R-Studio</a></li>
-<li class="chapter" data-level="5.1.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#r--cloud"><i class="fa fa-check"></i><b>5.1.2</b> R- cloud</a></li>
+<li class="chapter" data-level="4.5" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-ggplot2-para-graficar."><i class="fa fa-check"></i><b>4.5</b> Library ggplot2 para graficar.</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#gráficos-de-barras-barplot"><i class="fa fa-check"></i><b>4.5.1</b> Gráficos de Barras <code>Barplot()</code></a></li>
+<li class="chapter" data-level="4.5.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#diagrama-de-caja-con-la-función-geom_boxplot"><i class="fa fa-check"></i><b>4.5.2</b> Diagrama de caja con la función <code>geom_boxplot ()</code></a></li>
+<li class="chapter" data-level="4.5.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#gráficos-de-dispersión-con-la-función-geom_point"><i class="fa fa-check"></i><b>4.5.3</b> Gráficos de dispersión con la función <code>geom_point ()</code></a></li>
+<li class="chapter" data-level="4.5.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#temas-de-los-graficos"><i class="fa fa-check"></i><b>4.5.4</b> Temas de los graficos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#tipos-de-datos-en-tibble"><i class="fa fa-check"></i><b>5.2</b> tipos de datos en tibble</a></li>
-<li class="chapter" data-level="5.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#combinar-base-de-datos"><i class="fa fa-check"></i><b>5.3</b> Combinar base de datos</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#mutating-joins-uniones-de-trasformación"><i class="fa fa-check"></i><b>5.3.1</b> mutating joins (Uniones de trasformación)</a></li>
-<li class="chapter" data-level="5.3.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-exteriores"><i class="fa fa-check"></i><b>5.3.2</b> Uniones exteriores</a></li>
-<li class="chapter" data-level="5.3.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-de-filtros"><i class="fa fa-check"></i><b>5.3.3</b> Uniones de filtros</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-la-data"><i class="fa fa-check"></i><b>5.4</b> exploración de la data</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#inspección-de-una-tabla"><i class="fa fa-check"></i><b>5.4.1</b> Inspección de una tabla</a></li>
-<li class="chapter" data-level="5.4.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#selección-de-filas-y-columnas"><i class="fa fa-check"></i><b>5.4.2</b> Selección de filas y columnas</a></li>
-<li class="chapter" data-level="5.4.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-las-variables"><i class="fa fa-check"></i><b>5.4.3</b> Exploración de las variables</a></li>
+<li class="chapter" data-level="4.6" data-path="package-tidyverse.html"><a href="package-tidyverse.html#otros-packages-relacionados."><i class="fa fa-check"></i><b>4.6</b> Otros packages relacionados.</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#packages-data.table"><i class="fa fa-check"></i><b>4.6.1</b> Packages data.table</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>6</b> Machine Learning</a><ul>
-<li class="chapter" data-level="6.1" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-supervisados"><i class="fa fa-check"></i><b>6.1</b> Algoritmo Supervisados</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="machine-learning.html"><a href="machine-learning.html#vecinos-mas-cercanosknn"><i class="fa fa-check"></i><b>6.1.1</b> Vecinos mas cercanos(KNN)</a></li>
+<li class="chapter" data-level="5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Análisis de datos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#importar-base-de-datos"><i class="fa fa-check"></i><b>5.1</b> Importar base de datos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#desde-r-studio-de-escritorio"><i class="fa fa-check"></i><b>5.1.1</b> Desde R-Studio de escritorio</a></li>
+<li class="chapter" data-level="5.1.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#desde-r-cloud"><i class="fa fa-check"></i><b>5.1.2</b> Desde R-cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#unir-data-frames-en-r"><i class="fa fa-check"></i><b>5.2</b> Unir data frames en R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#mutating-joins-uniones-de-trasformación"><i class="fa fa-check"></i><b>5.2.1</b> mutating joins (Uniones de trasformación)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#uniones-de-filtros"><i class="fa fa-check"></i><b>5.2.2</b> Uniones de filtros</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#exploración-de-la-data"><i class="fa fa-check"></i><b>5.3</b> Exploración de la data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#inspección-de-una-tabla"><i class="fa fa-check"></i><b>5.3.1</b> Inspección de una tabla</a></li>
+<li class="chapter" data-level="5.3.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#selección-de-filas-y-columnas"><i class="fa fa-check"></i><b>5.3.2</b> Selección de filas y columnas</a></li>
+<li class="chapter" data-level="5.3.3" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#exploración-de-las-variables"><i class="fa fa-check"></i><b>5.3.3</b> Exploración de las variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>5.4</b> Análisis exploratorio de datos (EDA)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>6</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-supervisados"><i class="fa fa-check"></i><b>6.1</b> Algoritmo Supervisados</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="machine-learning.html"><a href="machine-learning.html#vecinos-cercanosknn"><i class="fa fa-check"></i><b>6.1.1</b> Vecinos cercanos(KNN)</a></li>
 <li class="chapter" data-level="6.1.2" data-path="machine-learning.html"><a href="machine-learning.html#regresiones-logistica"><i class="fa fa-check"></i><b>6.1.2</b> Regresiones logistica</a></li>
 <li class="chapter" data-level="6.1.3" data-path="machine-learning.html"><a href="machine-learning.html#modelo-de-máquina-de-soporte-vectorial-svm"><i class="fa fa-check"></i><b>6.1.3</b> Modelo de máquina de soporte vectorial (SVM)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-no-supervisados"><i class="fa fa-check"></i><b>6.2</b> Algoritmo no supervisados</a><ul>
+<li class="chapter" data-level="6.2" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-no-supervisados"><i class="fa fa-check"></i><b>6.2</b> Algoritmo no supervisados</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="machine-learning.html"><a href="machine-learning.html#k-means"><i class="fa fa-check"></i><b>6.2.1</b> K-Means</a></li>
-<li class="chapter" data-level="6.2.2" data-path="machine-learning.html"><a href="machine-learning.html#pca"><i class="fa fa-check"></i><b>6.2.2</b> PCA</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -220,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Notebook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -228,54 +268,136 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="conceptos-básicos" class="section level1">
+<div id="conceptos-básicos" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Conceptos Básicos</h1>
 <div style="text-align: justify">
 
-<p>En este capítulo veremos cómo instalar R y una breve explicación de sus diferentes ventanas, además veremos cómo utilizar la versión online de R conocido como R-cloud.</p>
-<div id="instalación" class="section level2">
-<h2><span class="header-section-number">2.1</span> Instalación</h2>
+<p>En este capítulo veremos como instalar el programa R-Studio y explicaremos brevemente sus diferentes ventanas, como también revisaremos la versión online de R conocida como R-cloud.
+coo
+## Instalación</p>
 <p>Para instalar R primero debemos ir al sitio oficial en el link siguiente: <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a> y lo descargamos según las característica del computador. Se debe realizar doble click en el instalar de R, luego se debe ejecutar en el computador seleccionado “sí” esto nos permite dar la autorización para que se instale R, luego escogemos el idioma deseado y luego se selecciona siguiente y “no” para la opción de configuraciones.</p>
-<p>{r echo=FALSE, out.width = “653px”, out.height=“320px”,fig.align=‘center’}
-knitr::include_graphics(“static/img/instalarR.PNG”)</p>
-<p>Es recomendable crear un acceso directo desde el escritorio y una ves descargado procedemos a abrir RSturdio como se observa en la siguente imagen.</p>
-<p>{r echo=FALSE, out.width = “653px”, out.height=“320px”,fig.align=‘center’}
-knitr::include_graphics(“static/img/instlacionR1.PNG”)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="static/img/imagen2.1.1.png" alt="Instalar R." width="653px" height="320px" />
+<p class="caption">
+Figure 2.1: Instalar R.
+</p>
 </div>
-<div id="la-consola-de-r" class="section level2">
-<h2><span class="header-section-number">2.2</span> La consola de R</h2>
+<p>Lo que acabamos de instalar corresponde al lenguaje de programación R, ahora debemos instalar R Studio que es un IDE o entorno de desarrollo integrado, R-Studio es un programa para manejar R. Para instalar R-Studio debemos dirigirnos al siguiente link: <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> . descargamos la versión de escritorio y según nuestro sistema operativo teniendo en cuenta las propiedades de nuestro dispositivo. Como se muestra en la siguiente imagen:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="static/img/imagen2.1.2.PNG" alt="Instalar R- Studio." width="653px" height="320px" />
+<p class="caption">
+Figure 2.2: Instalar R- Studio.
+</p>
+</div>
+<p>Es recomendable crear un acceso directo desde el escritorio y una vez descargado procedemos a abrir R- Sturdio como se observa en la siguiente imagen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="static/img/imagen2.1.3.png" alt="R- Studio desde el escritorio." width="653px" height="320px" />
+<p class="caption">
+Figure 2.3: R- Studio desde el escritorio.
+</p>
+</div>
+<div id="la-consola-de-r" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> La consola de R</h2>
 <p>Existen 4 ventanas, además de la barra de opciones en la parte superior.</p>
-<p>{r echo=FALSE, out.width = “653px”, out.height=“320px”,fig.align=‘center’}
-knitr::include_graphics(“static/img/1.PNG”)</p>
-<p><strong>El editor (Ventana 1)</strong>: se trata del lugar donde editamos la sintaxis para posteriormente ejecutarla. Al escribir allí no sucederá nada, a no ser que se apriete algún botón para ejecutar los comandos o la tecla ctrl+enter.</p>
-<p><strong>El entorno de variables (Ventana 2)</strong> : es el “entorno de trabajo” del programa: en este lugar se muestra el conjunto de datos y los “objetos” (resultados, variables, gráficos, etc.) que se almacenan al ejecutar diferentes análisis.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="static/img/imagen2.2.1.PNG" alt="ventanas de R_Studio." width="653px" height="320px" />
+<p class="caption">
+Figure 2.4: ventanas de R_Studio.
+</p>
+</div>
+<p><strong>El editor (Ventana 1)</strong>: se trata del lugar donde editamos la sintaxis para posteriormente ejecutarla. Para que el código corra es necesario apretar la tecla ctrl+enter.</p>
+<p><strong>El entorno de variables (Ventana 2)</strong> : En este lugar se muestra el conjunto de datos y los “objetos” (resultados, variables, gráficos, etc.) que se almacenan al ejecutar diferentes análisis.</p>
 <p><strong>La consola (Ventana 3)</strong> : Corresponde a lo que sería el software R en su versión básica. Allí el software ejecuta las operaciones realizadas desde el editor de sintaxis.</p>
 <p><strong>El editor (Ventana 4)</strong>: Tiene varias subpestañas:</p>
 <ol style="list-style-type: decimal">
 <li><p>La pestaña files permite ver el historial de archivos trabajados con el programa;</p></li>
 <li><p>La pestaña plots permite visualizar los gráficos que se generen;</p></li>
-<li><p>La pestaña packages permite ver los paquetes descargados y guardados en el disco duro así como gestionar su instalación o actualización;</p></li>
-<li><p>La ventana help permite acceder al CRAN - Comprehensive R Archive Network (siempre que se cuente con conexión a Internet), página oficial del software que ofrece diferentes recursos para el programa: manuales para el usuario, cursos on line, información general, descarga de paquetes, información de los paquetes instalados, etc. Esta última pestaña es bastante útil: empleando el motor de búsqueda se accede de manera rápida a manuales de uso de los diferentes paquetes (y sus funciones) instalados en el computador (esto no requiere conexión a Internet);</p></li>
-<li><p>La ventana viewer muestra los resultados al construir reportes mediante funcionalidades tipo rmarkdown .</p></li>
+<li><p>La pestaña packages permite ver los paquetes descargados y guardados en el disco duro, así como gestionar su instalación o actualización;</p></li>
+<li><p>La ventana help permite acceder al CRAN - Comprehensive R Archive Network (siempre que se cuente con conexión a Internet), página oficial del software que ofrece diferentes recursos para el programa: manuales para el usuario, cursos on line, información general, descarga de paquetes, información de los paquetes instalados, etc. Esta última pestaña es bastante útil: empleando el motor de búsqueda se accede de manera rápida a manuales de uso de los diferentes paquetes (y sus funciones) instalados en el computador (esto no requiere conexión a Internet).</p></li>
 </ol>
-<div id="crear-un-script" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Crear un script</h3>
-<p>Los scripts son documentos de texto con la extensión de archivo . Estos archivos son iguales a cualquier documento de texto, pero R los puede leer y ejecutar el código que contienen.Aunque R permite el uso interactivo, es recomendable que guardes tu código en un archivo .R, de esta manera puedes usarlo después y compartirlo con otras personas.
-#```{r echo=FALSE, out.width = “653px”, out.height=“320px”,fig.align=‘center’}
-#knitr::include_graphics(“static/img/2.PNG”)</p>
-<p>#```</p>
-<p>En la siguiente imagen, designado con el número 1 se observa la forma en que se debe guardar un script y con la asignación del numero 2 la forma que se corre un código esta genera en la consola la respuesta, que en este caso se observa en la venta 2 la creación de los vectores y el de la data frame. También se puede observar la diferencia en cómo se escribe un código y un comentario.</p>
+<div id="crear-un-script" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Crear un script</h3>
+<p>Los scripts son documentos de texto con la extensión de archivo. Estos archivos son iguales a cualquier documento de texto, pero R los puede leer y ejecutar el código que contienen. Aunque R permite el uso interactivo, es recomendable que guardes tu código en un archivo. De esta manera R puedes usarlo después y compartirlo con otras personas.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="static/img/imagen2.2.2.PNG" alt="Crear un script." width="653px" height="320px" />
+<p class="caption">
+Figure 2.5: Crear un script.
+</p>
+</div>
+<p>en la anterior imagen, se observa designado con el número 1 la forma en que se debe guardar un script y con la asignación del número 2 la forma que se corre un código generando la respuesta en la consola , en cuanto la objeto ejecutado se observa en la venta 2..</p>
 </div>
 </div>
-<div id="r--cloud-plataforma-online-de-r-studio" class="section level2">
-<h2><span class="header-section-number">2.3</span> R- cloud, plataforma online de R-Studio</h2>
+<div id="r--cloud-plataforma-online-de-r-studio" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> R- cloud, plataforma online de R-Studio</h2>
 <p>RStudio Cloud es una solución liviana basada en la nube que permite a cualquiera hacer, compartir, enseñar y aprender ciencia de datos en línea.</p>
-<div id="crear-un-script-1" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Crear un script</h3>
+<div id="crear-un-script-1" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Crear un script</h3>
 <p>Primer caso es crear un cuenta con el correo institucional en R-Cloud en el siguiente enlace: <a href="https://rstudio.com/products/cloud/" class="uri">https://rstudio.com/products/cloud/</a> una vez creada se crea un nuevo proyecto, como se observa en la siguiente imagen.</p>
-<p>#```{r echo=FALSE, out.width = “653px”, out.height=“320px”,fig.align=‘center’}
-#knitr::include_graphics(“static/img/3.PNG”)</p>
-<p>#```</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="static/img/imagen2.3.1.1.PNG" alt="R-studio cloud." width="653px" height="320px" />
+<p class="caption">
+Figure 2.6: R-studio cloud.
+</p>
+</div>
+</div>
+</div>
+<div id="conocimientos-básicos" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Conocimientos básicos</h2>
+<div id="qué-es-un-objeto" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> ¿Qué es un objeto?</h3>
+<p>R es un lenguaje orientado a objetos. Los objetos pueden ser usados para guardar valores y estos tiene la propiedad de poder modificarse mediante funciones. Por lo tanto, todos los datos y estructuras de datos son objetos, por lo que todos los objetos tienen un nombre para identificarlos. Para crear un objeto puede usar <code>&lt;-</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="conceptos-básicos.html#cb1-1" aria-hidden="true" tabindex="-1"></a>saludos <span class="ot">&lt;-</span> <span class="st">&quot;hola mundo&quot;</span> </span></code></pre></div>
+<p>En el caso de números creamos el siguiente vector</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="conceptos-básicos.html#cb2-1" aria-hidden="true" tabindex="-1"></a>calculos <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">6</span></span></code></pre></div>
+<p>Es importante destacar que los objetos pueden ser vectores, listas, matrices y data frame.</p>
+</div>
+<div id="la-importancia-de-los-nombres" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> La importancia de los nombres</h3>
+<p>Los nombres de los objetos se debe comenzar con una letra para luego continuar con letras, números, <code>_</code> y/o <code>.</code> . Como recomendación es mejor que los nombres de los objetos sean descriptivos así es más fácil de escribir y retener al momento de escribir el código. Por eso necesitarás una convención para usar más de una palabra. Por ejemplo:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="conceptos-básicos.html#cb3-1" aria-hidden="true" tabindex="-1"></a>saludo_para.el_mundo <span class="ot">&lt;-</span> <span class="st">&quot;hola mundo&quot;</span> </span></code></pre></div>
+</div>
+<div id="crear-comentarios-y-titulo" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Crear comentarios y titulo</h3>
+<p>Para crear cometarios en r se utiliza <code>#</code> puede ir arriba del código como a lado derecho de este y nos sirve para explicar los códigos creados.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="conceptos-básicos.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#codigo </span></span>
+<span id="cb4-2"><a href="conceptos-básicos.html#cb4-2" aria-hidden="true" tabindex="-1"></a>saludo_para.el_mundo <span class="ot">&lt;-</span> <span class="st">&quot;hola mundo&quot;</span>  <span class="co"># crear vector </span></span></code></pre></div>
+<p>Si queremos crear un título en R también utilizaremos <code>#</code> pero este debe repetirse 4 veces a cada lado como en el siguiente ejemplo.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="conceptos-básicos.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### codigo 1 #### </span></span>
+<span id="cb5-2"><a href="conceptos-básicos.html#cb5-2" aria-hidden="true" tabindex="-1"></a>saludo_para.el_mundo <span class="ot">&lt;-</span> <span class="st">&quot;hola mundo&quot;</span>  <span class="co"># crear vector </span></span></code></pre></div>
+<p>Otra forma de crear un comentario es terminada en 4 guiones el título.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="conceptos-básicos.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># codigo 2 ----</span></span>
+<span id="cb6-2"><a href="conceptos-básicos.html#cb6-2" aria-hidden="true" tabindex="-1"></a>saludo_para.el_mundo <span class="ot">&lt;-</span> <span class="st">&quot;hola mundo&quot;</span>  <span class="co"># crear vector </span></span></code></pre></div>
+<p>La importancia de los títulos es que nos ayuda a ubicar diferentes procedimientos en los códigos, ya que este se puede abreviar con la flechita mostrada a lado izquierdo o se puede acceder al índice de R para ubicar el titulo como se muestra en la siguiente imagen.</p>
+<p><img src="static/img/imagen2.4.3.PNG" width="653px" height="320px" style="display: block; margin: auto;" />
+### Sintaxis, Partes del código.</p>
+<p>Para entender la sintaxis de los códigos debemos dividirlo en partes como se muestra en la siguiente imagen:</p>
+<p><img src="static/img/imagen2.4.4.PNG" width="653px" height="320px" style="display: block; margin: auto;" /></p>
+<p>El primer paso es indicar el <code>objeto</code>, con las especificaciones que indicamos con anterioridad.
+Luego se indica el <code>asignador</code>, que expresa que todo lo que esté a la derecha de la flecha se guardará en el objeto creado.
+Luego el siguiente paso es escribirla <code>función</code> que para el ejemplo se usó <code>mutate</code>, luego dentro de los paréntesis contiene los argumentos, el primero es el nombre del data frame , segundo y tercer argumento es para indicar que queremos que haga el código (esto depende de cada función).</p>
+</div>
+<div id="conceptos-de-paquetes-y-librerías" class="section level3" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Conceptos de Paquetes y librerías</h3>
+<p>R puede ser expandido con paquetes. Cada paquete es una colección de funciones diseñadas para atender una tarea específica. Estos paquetes se encuentran alojados en CRAN, así que pasan por un control riguroso antes de estar disponibles para su uso generalizado.
+Para instalar paquetes se usa la función <code>install.packages(),</code>dando como argumento el nombre del paquete que deseamos instalar, entre comillas.</p>
+<p>Por ejemplo, para instalar el paquete corremos lo siguiente.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conceptos-básicos.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span></code></pre></div>
+<p>Una vez realizado lo anterior, aparecerán algunos mensajes en la consola mostrando el avance de la instalación
+Una vez concluida la instalación de un paquete, podrás usar sus funciones con la función <code>library()</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="conceptos-básicos.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.0.6     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>Es importante que tengas en cuenta que debes hacer una llamada a library() cada que inicies una sesión en R.</p>
+</div>
+<div id="memoria-temporal-del-programa" class="section level3" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Memoria temporal del programa</h3>
+<p>R funciona como un entorno temporal de trabajo, esto quiere decir que el usuario va agregando datos y objetos a una script y trabaja con la memoria activa (RAM) del computador, por lo tanto, cualquier análisis sólo mostrará la información resultante pero no permanecerá como archivo posible de utilizar de modo posterior.</p>
 <div/>
 
 
