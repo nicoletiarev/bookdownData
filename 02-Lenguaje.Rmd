@@ -1,6 +1,5 @@
 ---
 title: "lenguaje"
-
 ---
 # Lenguaje 
 
@@ -25,7 +24,7 @@ complex | 1+2i | complex | `is.complex()`
 
 ## Estructura de control 
 
-Las estructuras de control nos permiten controlar el flujo de ejecución de una secuencia de comandos. De este modo, podemos poner "lógica" en el código de R y lograr así reutilizar fragmentos del código una y otra vez. A continuación, veremos la sentencia de control .
+Las estructuras de control nos permiten controlar el flujo de ejecución de una secuencia de comandos. De este modo, podemos poner "lógica" en el código de R y lograr así reutilizar fragmentos del código una y otra vez. A continuación, veremos la sentencia de control.
 
 ### Sentencias de Control - If / Else
 
@@ -95,9 +94,12 @@ valor <- 25
 ```
 
 ### Vectores 
+
 Los vectores pueden representar las columnas de una tabla de datos. un ejemplo podría ser la lista del curso con las notas. 
 
-![](C:\Users\nicol\OneDrive\Escritorio\imagenes/vectores.PNG)
+```{r echo=FALSE, out.width = "653px", out.height="320px",fig.align='center', fig.cap='Ejemplo de vectores.'}
+knitr::include_graphics("static/img/imagen3.3.2.PNG")
+```
 
 Si queremos crear vectores en R, utilizamos la función `c()`. En este caso, la c es de «combinar» (combinar uno o más valores o elementos). Lo más común, es que los vectores sean de tipo numérico, carácter o lógico.
 
@@ -116,8 +118,8 @@ Prueba_2 <- c(60, 40, 60)
 
 Podemos operar vectores contra valores numéricos o con otros vectores. En la siguiente tabla se mostrarán las operaciones básicas que se pueden hacer con vectores.
 
-Operaciones | Sintaxis 
-:--------:|:-----------:|:----------|
+Operaciones | Sintaxis |
+:--------|:-----------:|
 Adición | + |
 Sustracción | - |
 Dividir | / |
@@ -125,12 +127,14 @@ Producto Escalar| %*% |
 Producto de Elementos | * |
 Suma de Elementos |` sum()` |
 
-Por ejemplo, se asigna dos décimas a la prueba 1  para cada estudiantes.
+Por ejemplo, se asigna dos décimas a la prueba 1 para cada estudiante.
+
 ```{r}
 Prueba_1 + 2
 ```
 
 Se resta 5 décimas a las pruebas 2 para cada estudiante.
+
 ```{r}
 Prueba_2 - 5
 ```
@@ -143,7 +147,7 @@ Prueba_1 + Prueba_2
 Como se observa se sumaron las primeras notas y para obtener las notas modificadas se realiza lo siguiente. 
 
 ```{r}
-# se cambia las notas en los vectores con la nueva asignacion  
+# se cambia las notas en los vectores con la nueva asignación  
 Prueba_1 <- Prueba_1 + 2
 Prueba_2 <- Prueba_2 - 5
 
@@ -159,7 +163,7 @@ sum(Prueba_1)
 
 Ahora queremos saber el promedio entre las dos pruebas por cada estudiante.
 
-#### Operaciones Estadisticas 
+#### Operaciones estadísticas 
 
 Operaciones | Sintaxis 
 ----------|------------
@@ -174,6 +178,9 @@ Producto Acumulado | `cumprod()` |
 Diferencias |	`diff()` |
 Coeficiente de Correlación | `cor()` |
 
+```{example, label="foo", name="Entornos de bookdown"}
+
+```
 Ahora si queremos calcular la media aritmética o promedio de la prueba 1, se tendrá que utilizar el comando `mean()`.
 
 ```{r}
@@ -206,7 +213,7 @@ La función `rev()` coloca las componentes de un vector en orden inverso a como 
 rev(Prueba_1)
 ```
 
-También se puede realizar de la siguente forma agregamos la decreasing= TRUE para hacerlo decreciente.
+También se puede realizar de la siguiente forma agregamos la decreasing= TRUE para hacerlo decreciente.
 ```{r}
 sort(Prueba_1, decreasing = TRUE)
 ```
@@ -239,44 +246,47 @@ Prueba_1 == 42
 ### Matrices 
 
 Una matriz R no es más que un vector que cuenta con un atributo llamado dim indicando el número de filas y columnas de la matriz. Se trata, por tanto, de una estructura de datos en la que todos los elementos han de ser del mismo tipo. Podemos
-crear una matriz a partir de un vector, asi como indicando el número de filas y columnas dejando todos sus elementos vacíos.
+crear una matriz a partir de un vector, así como indicando el número de filas y columnas dejando todos sus elementos vacíos.
 
-Ahora crearemos una matrix que contenga números del 4 al 55 que tenga 8 columas y 7 filas
+Ahora crearemos una matriz que contenga números del 4 al 55 que tenga 8 columnas y 7 filas
 ```{r}
 Matriz <- matrix(4:55,ncol=8) # Dos formas de generar exactamente
 Matriz <- matrix(4:55,nrow=7) # la misma matriz
 Matriz
 ```
-la función `length()` devuelve el número de
-elementos de una matriz.
+la función `length()` devuelve el número de elementos de una matriz.
 
 ```{r}
 length(Matriz) 
 ```
-Para conocer el número de filas y columnas podemos usar
-las función `nrow()`,`ncol()` y `dim()`.
+
+Para conocer el número de filas y columnas podemos usar las función `nrow()`,`ncol()` y `dim()`.
 ```{r}
 nrow(Matriz)
 ```
 ```{r}
 dim(Matriz)
 ```
-si queremos nombrar las columnas  y filas de la matriz usamos la funciones `colnames()` y `rownomes()` respectivamemente. 
+
+si queremos nombrar las columnas y filas de la matriz usamos la funciones `colnames()` y `rownomes()` respectivamemente. 
 ```{r}
 colnames(Matriz) <- c('Semana1','Semana2','Semana3',  'Semana4','Semana5', 'Semana6', 'Semana7', 'Semana8')
 Matriz
 ```
 
 ### Data frames
-El data frame es seguramente el tipo de dato más utilizado en R, el  data frame está compuesto de múltiples columnas y filas, como una matriz, pero cada columna puede ser un tipo distinto. 
 
-Ahora con las anteriores variables de las notas de los alumnos crearemos un data frame con función `data.frame ()`.
+El data frame es seguramente el tipo de dato más utilizado en R, el data frame está compuesto de múltiples columnas y filas, como una matriz, pero cada columna puede ser un tipo distinto. Pero antes de adentrarnos a data frame es importante saber cuál es la diferencia con un data set.
+Un data set (conjunto de datos) es cualquier dato que recopile para su análisis. Esto podría obtenerse de un archivo de Excel, una base de datos, un lago de datos o cualquier otro medio para almacenar datos. Un conjunto de datos se puede cargar en un data frame (marco de datos) que es una estructura de tabla construida específicamente para el análisis.
+Un data frame usa RAM en lugar de discos duros, lo que significa que usa un almacenamiento temporal rápido que desaparecerá una vez que se apague la computadora.
+Ahora con las anteriores variables llamadas notas de los alumnos crearemos un data frame con la función `data.frame ()`. Es importante destacar que un data frame está compuesto por vectores.
 ```{r}
 lista_alum <- data.frame(Nombre, Apellido, Prueba_1, Prueba_2)
 lista_alum
 ```
 
 Veremos el número de observaciones con la función `nrow()`.
+
 ```{r}
 nrow(lista_alum)
 ```
@@ -290,8 +300,27 @@ El tipo de caracter que poseen las columnas.
 ```{r}
 str(lista_alum)
 ```
+Aquí podemos observar diferentes informaciones que posee el data frame list_alum, lo primero que observamos es la cantidad de observaciones las cuales posee 3, también la cantidad de variables las cuales son 4, los nombres de cada variables o columnas con sus respectivo tipo de data que posee. En este caso tenemos dos variables numéricas y dos variables de carácter. 
+
+####  Detach
+La notación `$` para el acceso a elementos de un data.frame
+
+```{r}
+mean(lista_alum$Prueba_1)
+```
 
 
+#### Operaciones estadísticas Data frame 
+Si queremos saber la nota máxima de la prueba_2 .
+
+```{r}
+max(lista_alum$Prueba_2)
+```
+Si queremos saber la nota mínima de la prueba_2 .
+
+```{r}
+min(lista_alum$Prueba_2)
+```
 
 <div/>
 

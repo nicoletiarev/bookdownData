@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Lenguaje | R Notebook</title>
-  <meta name="description" content="3 Lenguaje | R Notebook" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <title>3 Lenguaje | lenguaje</title>
+  <meta name="description" content="3 Lenguaje | lenguaje" />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Lenguaje | R Notebook" />
+  <meta property="og:title" content="3 Lenguaje | lenguaje" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Lenguaje | R Notebook" />
+  <meta name="twitter:title" content="3 Lenguaje | lenguaje" />
   
   
   
@@ -30,7 +30,8 @@
   
   
 <link rel="prev" href="conceptos-básicos.html"/>
-<link rel="next" href="tidyverse.html"/>
+<link rel="next" href="package-tidyverse.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,38 +49,31 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.15/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -123,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -135,80 +130,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> que es?</a></li>
-<li class="chapter" data-level="2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html"><i class="fa fa-check"></i><b>2</b> Conceptos Básicos</a><ul>
-<li class="chapter" data-level="2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#instalación"><i class="fa fa-check"></i><b>2.1</b> Instalación</a></li>
-<li class="chapter" data-level="2.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-consola-de-r"><i class="fa fa-check"></i><b>2.2</b> La consola de R</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script"><i class="fa fa-check"></i><b>2.2.1</b> Crear un script</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> nombre del documento</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#lo-que-aprenderás"><i class="fa fa-check"></i><b>1.1</b> Lo que aprenderás</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#cómo-está-organizado-este-libro"><i class="fa fa-check"></i><b>1.2</b> Cómo está organizado este libro</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#r--cloud-plataforma-online-de-r-studio"><i class="fa fa-check"></i><b>2.3</b> R- cloud, plataforma online de R-Studio</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script-1"><i class="fa fa-check"></i><b>2.3.1</b> Crear un script</a></li>
+<li class="chapter" data-level="2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html"><i class="fa fa-check"></i><b>2</b> Conceptos Básicos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#section"><i class="fa fa-check"></i><b>2.1</b> —</a></li>
+<li class="chapter" data-level="2.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#instalación"><i class="fa fa-check"></i><b>2.2</b> Instalación</a></li>
+<li class="chapter" data-level="2.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-consola-de-r"><i class="fa fa-check"></i><b>2.3</b> La consola de R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script"><i class="fa fa-check"></i><b>2.3.1</b> Crear un script</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#r--cloud-plataforma-online-de-r-studio"><i class="fa fa-check"></i><b>2.4</b> R- cloud, plataforma online de R-Studio</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-un-script-1"><i class="fa fa-check"></i><b>2.4.1</b> Crear un script</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#conocimientos-básicos"><i class="fa fa-check"></i><b>2.5</b> Conocimientos básicos</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#qué-es-un-objeto"><i class="fa fa-check"></i><b>2.5.1</b> ¿Qué es un objeto?</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#la-importancia-de-los-nombres"><i class="fa fa-check"></i><b>2.5.2</b> La importancia de los nombres</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#crear-comentarios-y-titulo"><i class="fa fa-check"></i><b>2.5.3</b> Crear comentarios y titulo</a></li>
+<li class="chapter" data-level="2.5.4" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#sintaxis-partes-del-código."><i class="fa fa-check"></i><b>2.5.4</b> Sintaxis, Partes del código.</a></li>
+<li class="chapter" data-level="2.5.5" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#conceptos-de-paquetes-y-librerías"><i class="fa fa-check"></i><b>2.5.5</b> Conceptos de Paquetes y librerías</a></li>
+<li class="chapter" data-level="2.5.6" data-path="conceptos-básicos.html"><a href="conceptos-básicos.html#memoria-temporal-del-programa"><i class="fa fa-check"></i><b>2.5.6</b> Memoria temporal del programa</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lenguaje.html"><a href="lenguaje.html"><i class="fa fa-check"></i><b>3</b> Lenguaje</a><ul>
+<li class="chapter" data-level="3" data-path="lenguaje.html"><a href="lenguaje.html"><i class="fa fa-check"></i><b>3</b> Lenguaje</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="lenguaje.html"><a href="lenguaje.html#tipos-de-datos"><i class="fa fa-check"></i><b>3.1</b> Tipos de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-control"><i class="fa fa-check"></i><b>3.2</b> Estructura de control</a><ul>
+<li class="chapter" data-level="3.2" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-control"><i class="fa fa-check"></i><b>3.2</b> Estructura de control</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="lenguaje.html"><a href="lenguaje.html#sentencias-de-control---if-else"><i class="fa fa-check"></i><b>3.2.1</b> Sentencias de Control - If / Else</a></li>
 <li class="chapter" data-level="3.2.2" data-path="lenguaje.html"><a href="lenguaje.html#control-de-flujo"><i class="fa fa-check"></i><b>3.2.2</b> Control de Flujo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-datos"><i class="fa fa-check"></i><b>3.3</b> Estructura de datos</a><ul>
+<li class="chapter" data-level="3.3" data-path="lenguaje.html"><a href="lenguaje.html#estructura-de-datos"><i class="fa fa-check"></i><b>3.3</b> Estructura de datos</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="lenguaje.html"><a href="lenguaje.html#variables"><i class="fa fa-check"></i><b>3.3.1</b> Variables</a></li>
 <li class="chapter" data-level="3.3.2" data-path="lenguaje.html"><a href="lenguaje.html#vectores"><i class="fa fa-check"></i><b>3.3.2</b> Vectores</a></li>
 <li class="chapter" data-level="3.3.3" data-path="lenguaje.html"><a href="lenguaje.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
 <li class="chapter" data-level="3.3.4" data-path="lenguaje.html"><a href="lenguaje.html#data-frames"><i class="fa fa-check"></i><b>3.3.4</b> Data frames</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>4</b> Tidyverse</a><ul>
-<li class="chapter" data-level="4.1" data-path="tidyverse.html"><a href="tidyverse.html#ggplot2"><i class="fa fa-check"></i><b>4.1</b> ggplot2</a></li>
-<li class="chapter" data-level="4.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>4.2</b> dplyr</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="tidyverse.html"><a href="tidyverse.html#agregar-nuevas-columnas-con-mutate."><i class="fa fa-check"></i><b>4.2.1</b> Agregar nuevas columnas con <code>mutate()</code>.</a></li>
-<li class="chapter" data-level="4.2.2" data-path="tidyverse.html"><a href="tidyverse.html#seleccionar-columnas-con-select."><i class="fa fa-check"></i><b>4.2.2</b> Seleccionar columnas con <code>select()</code>.</a></li>
-<li class="chapter" data-level="4.2.3" data-path="tidyverse.html"><a href="tidyverse.html#filtrar-filas-con-filter."><i class="fa fa-check"></i><b>4.2.3</b> Filtrar filas con <code>filter()</code>.</a></li>
-<li class="chapter" data-level="4.2.4" data-path="tidyverse.html"><a href="tidyverse.html#organizar-filas-con-arrange"><i class="fa fa-check"></i><b>4.2.4</b> Organizar filas con <code>arrange()</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="tidyverse.html"><a href="tidyverse.html#elija-filas-usando-su-posición-con-slice"><i class="fa fa-check"></i><b>4.2.5</b> Elija filas usando su posición con <code>slice()</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="tidyverse.html"><a href="tidyverse.html#cambiar-el-orden-de-las-columnas-con-relocate"><i class="fa fa-check"></i><b>4.2.6</b> Cambiar el orden de las columnas con <code>relocate()</code></a></li>
-<li class="chapter" data-level="4.2.7" data-path="tidyverse.html"><a href="tidyverse.html#resumir-valores-con-summarise"><i class="fa fa-check"></i><b>4.2.7</b> Resumir valores con <code>summarise()</code></a></li>
+<li class="chapter" data-level="4" data-path="package-tidyverse.html"><a href="package-tidyverse.html"><i class="fa fa-check"></i><b>4</b> Package Tidyverse</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-readr-para-importar-datos"><i class="fa fa-check"></i><b>4.1</b> library readr para importar datos</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#leer-datos-tabulares"><i class="fa fa-check"></i><b>4.1.1</b> Leer datos tabulares</a></li>
+<li class="chapter" data-level="4.1.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#leer-datos-no-tabulares"><i class="fa fa-check"></i><b>4.1.2</b> Leer datos no tabulares</a></li>
+<li class="chapter" data-level="4.1.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#especificar-el-tipo-de-datos"><i class="fa fa-check"></i><b>4.1.3</b> Especificar el tipo de datos</a></li>
+<li class="chapter" data-level="4.1.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#encoding"><i class="fa fa-check"></i><b>4.1.4</b> Encoding</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>4.3</b> tidyr</a></li>
-<li class="chapter" data-level="4.4" data-path="tidyverse.html"><a href="tidyverse.html#readr"><i class="fa fa-check"></i><b>4.4</b> readr</a></li>
-<li class="chapter" data-level="4.5" data-path="tidyverse.html"><a href="tidyverse.html#purrr"><i class="fa fa-check"></i><b>4.5</b> purrr</a></li>
-<li class="chapter" data-level="4.6" data-path="tidyverse.html"><a href="tidyverse.html#tibble"><i class="fa fa-check"></i><b>4.6</b> tibble</a></li>
-<li class="chapter" data-level="4.7" data-path="tidyverse.html"><a href="tidyverse.html#stringr"><i class="fa fa-check"></i><b>4.7</b> stringr</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-caracteres"><i class="fa fa-check"></i><b>4.7.1</b> manipulación de caracteres</a></li>
-<li class="chapter" data-level="4.7.2" data-path="tidyverse.html"><a href="tidyverse.html#especio-en-blanco"><i class="fa fa-check"></i><b>4.7.2</b> Especio en blanco</a></li>
+<li class="chapter" data-level="4.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-dplyr-para-manipulación-de-datos"><i class="fa fa-check"></i><b>4.2</b> Library dplyr para manipulación de datos</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#funciones-principales"><i class="fa fa-check"></i><b>4.2.1</b> Funciones principales</a></li>
+<li class="chapter" data-level="4.2.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-mutate-para-realizar-operaciones-de-columnas."><i class="fa fa-check"></i><b>4.2.2</b> Función <code>mutate()</code> para realizar operaciones de columnas.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-select."><i class="fa fa-check"></i><b>4.2.3</b> Función <code>select()</code>.</a></li>
+<li class="chapter" data-level="4.2.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-arrange-para-ordenar-observaciones."><i class="fa fa-check"></i><b>4.2.4</b> Función <code>arrange()</code> para ordenar observaciones.</a></li>
+<li class="chapter" data-level="4.2.5" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-slice-para-seleccionar-eliminar-y-duplicar-filas"><i class="fa fa-check"></i><b>4.2.5</b> Función <code>slice()</code> para seleccionar, eliminar y duplicar filas</a></li>
+<li class="chapter" data-level="4.2.6" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-relocate-cambiar-posición-de-las-columnas"><i class="fa fa-check"></i><b>4.2.6</b> Función <code>relocate()</code> cambiar posición de las columnas</a></li>
+<li class="chapter" data-level="4.2.7" data-path="package-tidyverse.html"><a href="package-tidyverse.html#función-summarise-para-realizar-operaciones-estadisticas."><i class="fa fa-check"></i><b>4.2.7</b> Función <code>summarise()</code> para realizar operaciones estadisticas.</a></li>
+<li class="chapter" data-level="4.2.8" data-path="package-tidyverse.html"><a href="package-tidyverse.html#funciones-sencundarias"><i class="fa fa-check"></i><b>4.2.8</b> Funciones sencundarias</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="tidyverse.html"><a href="tidyverse.html#forcats"><i class="fa fa-check"></i><b>4.8</b> forcats</a><ul>
-<li class="chapter" data-level="4.8.1" data-path="tidyverse.html"><a href="tidyverse.html#sensible-a-la-configuración-regional"><i class="fa fa-check"></i><b>4.8.1</b> Sensible a la configuración regional</a></li>
-<li class="chapter" data-level="4.8.2" data-path="tidyverse.html"><a href="tidyverse.html#la-coincidencia-de-patrones"><i class="fa fa-check"></i><b>4.8.2</b> La coincidencia de patrones</a></li>
+<li class="chapter" data-level="4.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-tidyr-para-crear-datos-ordenados"><i class="fa fa-check"></i><b>4.3</b> Library tidyr para crear datos ordenados</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#unir-las-columnas-en-pares-clave-valor-con-la-función-gather"><i class="fa fa-check"></i><b>4.3.1</b> Unir las columnas en pares clave-valor con la función <code>gather()</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#distribuya-un-par-clave-valor-en-varias-columnas-con-la-función-spread"><i class="fa fa-check"></i><b>4.3.2</b> Distribuya un par clave-valor en varias columnas con la función <code>spread()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#separar-una-columna-en-varias-columnas-con-la-función-separate"><i class="fa fa-check"></i><b>4.3.3</b> Separar una columna en varias columnas con la función <code>separate()</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#une-varias-columnas-en-una-con-la-función-unite"><i class="fa fa-check"></i><b>4.3.4</b> Une varias columnas en una con la función <code>unite()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="tidyverse.html"><a href="tidyverse.html#forcats-1"><i class="fa fa-check"></i><b>4.9</b> forcats</a></li>
+<li class="chapter" data-level="4.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-stringr-para-la-manipulación-de-las-observaciones."><i class="fa fa-check"></i><b>4.4</b> Library stringr para la manipulación de las observaciones.</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#manipulación-de-la-observación"><i class="fa fa-check"></i><b>4.4.1</b> Manipulación de la observación</a></li>
+<li class="chapter" data-level="4.4.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#especio-en-blanco"><i class="fa fa-check"></i><b>4.4.2</b> Especio en blanco</a></li>
+<li class="chapter" data-level="4.4.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#sensible-a-la-configuración-regional"><i class="fa fa-check"></i><b>4.4.3</b> Sensible a la configuración regional</a></li>
+<li class="chapter" data-level="4.4.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#la-coincidencia-de-patrones"><i class="fa fa-check"></i><b>4.4.4</b> La coincidencia de patrones</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Analisis de datos</a><ul>
-<li class="chapter" data-level="5.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#cargar-de-datos"><i class="fa fa-check"></i><b>5.1</b> Cargar de datos</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#en-r-studio"><i class="fa fa-check"></i><b>5.1.1</b> En R-Studio</a></li>
-<li class="chapter" data-level="5.1.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#r--cloud"><i class="fa fa-check"></i><b>5.1.2</b> R- cloud</a></li>
+<li class="chapter" data-level="4.5" data-path="package-tidyverse.html"><a href="package-tidyverse.html#library-ggplot2-para-graficar."><i class="fa fa-check"></i><b>4.5</b> Library ggplot2 para graficar.</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#gráficos-de-barras-barplot"><i class="fa fa-check"></i><b>4.5.1</b> Gráficos de Barras <code>Barplot()</code></a></li>
+<li class="chapter" data-level="4.5.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#diagrama-de-caja-con-la-función-geom_boxplot"><i class="fa fa-check"></i><b>4.5.2</b> Diagrama de caja con la función <code>geom_boxplot ()</code></a></li>
+<li class="chapter" data-level="4.5.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#gráfico-de-densidad-con-la-función-geom_density"><i class="fa fa-check"></i><b>4.5.3</b> Gráfico de densidad con la función <code>geom_density ()</code></a></li>
+<li class="chapter" data-level="4.5.4" data-path="package-tidyverse.html"><a href="package-tidyverse.html#diagramas-de-dispersión-plot"><i class="fa fa-check"></i><b>4.5.4</b> Diagramas de dispersión <code>plot()</code></a></li>
+<li class="chapter" data-level="4.5.5" data-path="package-tidyverse.html"><a href="package-tidyverse.html#boxplot-de-dispersión-plot"><i class="fa fa-check"></i><b>4.5.5</b> Boxplot de dispersión <code>plot()</code></a></li>
+<li class="chapter" data-level="4.5.6" data-path="package-tidyverse.html"><a href="package-tidyverse.html#temas-de-los-graficos"><i class="fa fa-check"></i><b>4.5.6</b> Temas de los graficos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#tipos-de-datos-en-tibble"><i class="fa fa-check"></i><b>5.2</b> tipos de datos en tibble</a></li>
-<li class="chapter" data-level="5.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#combinar-base-de-datos"><i class="fa fa-check"></i><b>5.3</b> Combinar base de datos</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#mutating-joins-uniones-de-trasformación"><i class="fa fa-check"></i><b>5.3.1</b> mutating joins (Uniones de trasformación)</a></li>
-<li class="chapter" data-level="5.3.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-exteriores"><i class="fa fa-check"></i><b>5.3.2</b> Uniones exteriores</a></li>
-<li class="chapter" data-level="5.3.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#uniones-de-filtros"><i class="fa fa-check"></i><b>5.3.3</b> Uniones de filtros</a></li>
+<li class="chapter" data-level="4.6" data-path="package-tidyverse.html"><a href="package-tidyverse.html#otros-packages-relacionados."><i class="fa fa-check"></i><b>4.6</b> Otros packages relacionados.</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#packages-data.table"><i class="fa fa-check"></i><b>4.6.1</b> Packages data.table</a></li>
+<li class="chapter" data-level="4.6.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#análisis-de-datos"><i class="fa fa-check"></i><b>4.6.2</b> Análisis de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-la-data"><i class="fa fa-check"></i><b>5.4</b> exploración de la data</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#inspección-de-una-tabla"><i class="fa fa-check"></i><b>5.4.1</b> Inspección de una tabla</a></li>
-<li class="chapter" data-level="5.4.2" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#selección-de-filas-y-columnas"><i class="fa fa-check"></i><b>5.4.2</b> Selección de filas y columnas</a></li>
-<li class="chapter" data-level="5.4.3" data-path="analisis-de-datos.html"><a href="analisis-de-datos.html#exploración-de-las-variables"><i class="fa fa-check"></i><b>5.4.3</b> Exploración de las variables</a></li>
+<li class="chapter" data-level="4.7" data-path="package-tidyverse.html"><a href="package-tidyverse.html#importar-base-de-datos"><i class="fa fa-check"></i><b>4.7</b> Importar base de datos</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#desde-r-studio-de-escritorio"><i class="fa fa-check"></i><b>4.7.1</b> Desde R-Studio de escritorio</a></li>
+<li class="chapter" data-level="4.7.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#desde-r-cloud"><i class="fa fa-check"></i><b>4.7.2</b> Desde R-cloud</a></li>
 </ul></li>
+<li class="chapter" data-level="4.8" data-path="package-tidyverse.html"><a href="package-tidyverse.html#unir-data-frames-en-r"><i class="fa fa-check"></i><b>4.8</b> Unir data frames en R</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#mutating-joins-uniones-de-trasformación"><i class="fa fa-check"></i><b>4.8.1</b> mutating joins (Uniones de trasformación)</a></li>
+<li class="chapter" data-level="4.8.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#uniones-de-filtros"><i class="fa fa-check"></i><b>4.8.2</b> Uniones de filtros</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>6</b> Machine Learning</a><ul>
-<li class="chapter" data-level="6.1" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-supervisados"><i class="fa fa-check"></i><b>6.1</b> Algoritmo Supervisados</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="machine-learning.html"><a href="machine-learning.html#vecinos-mas-cercanosknn"><i class="fa fa-check"></i><b>6.1.1</b> Vecinos mas cercanos(KNN)</a></li>
-<li class="chapter" data-level="6.1.2" data-path="machine-learning.html"><a href="machine-learning.html#regresiones-logistica"><i class="fa fa-check"></i><b>6.1.2</b> Regresiones logistica</a></li>
-<li class="chapter" data-level="6.1.3" data-path="machine-learning.html"><a href="machine-learning.html#modelo-de-máquina-de-soporte-vectorial-svm"><i class="fa fa-check"></i><b>6.1.3</b> Modelo de máquina de soporte vectorial (SVM)</a></li>
+<li class="chapter" data-level="4.9" data-path="package-tidyverse.html"><a href="package-tidyverse.html#exploración-de-la-data"><i class="fa fa-check"></i><b>4.9</b> Exploración de la data</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="package-tidyverse.html"><a href="package-tidyverse.html#inspección-de-una-tabla"><i class="fa fa-check"></i><b>4.9.1</b> Inspección de una tabla</a></li>
+<li class="chapter" data-level="4.9.2" data-path="package-tidyverse.html"><a href="package-tidyverse.html#selección-de-filas-y-columnas"><i class="fa fa-check"></i><b>4.9.2</b> Selección de filas y columnas</a></li>
+<li class="chapter" data-level="4.9.3" data-path="package-tidyverse.html"><a href="package-tidyverse.html#exploración-de-las-variables"><i class="fa fa-check"></i><b>4.9.3</b> Exploración de las variables</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-no-supervisados"><i class="fa fa-check"></i><b>6.2</b> Algoritmo no supervisados</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="machine-learning.html"><a href="machine-learning.html#k-means"><i class="fa fa-check"></i><b>6.2.1</b> K-Means</a></li>
-<li class="chapter" data-level="6.2.2" data-path="machine-learning.html"><a href="machine-learning.html#pca"><i class="fa fa-check"></i><b>6.2.2</b> PCA</a></li>
+<li class="chapter" data-level="4.10" data-path="package-tidyverse.html"><a href="package-tidyverse.html#análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>4.10</b> Análisis exploratorio de datos (EDA)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>5</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-supervisados"><i class="fa fa-check"></i><b>5.1</b> Algoritmo Supervisados</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="machine-learning.html"><a href="machine-learning.html#vecinos-cercanosknn"><i class="fa fa-check"></i><b>5.1.1</b> Vecinos cercanos(KNN)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="machine-learning.html"><a href="machine-learning.html#regresiones-logistica"><i class="fa fa-check"></i><b>5.1.2</b> Regresiones logistica</a></li>
+<li class="chapter" data-level="5.1.3" data-path="machine-learning.html"><a href="machine-learning.html#modelo-de-máquina-de-soporte-vectorial-svm"><i class="fa fa-check"></i><b>5.1.3</b> Modelo de máquina de soporte vectorial (SVM)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="machine-learning.html"><a href="machine-learning.html#algoritmo-no-supervisados"><i class="fa fa-check"></i><b>5.2</b> Algoritmo no supervisados</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="machine-learning.html"><a href="machine-learning.html#k-means"><i class="fa fa-check"></i><b>5.2.1</b> K-Means</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -220,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Notebook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">lenguaje</a>
           </h1>
         </div>
 
@@ -228,12 +269,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lenguaje" class="section level1">
+<div id="lenguaje" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Lenguaje</h1>
 <div style="text-align: justify">
 
 <p>En este capítulo abordaremos los tipos de datos que se usan en una data frame, como también la estructura de control que nos permiten controlar el flujo de ejecución de una secuencia de comandos y la estructura de datos de la data frame.</p>
-<div id="tipos-de-datos" class="section level2">
+<div id="tipos-de-datos" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Tipos de datos</h2>
 <p>Los tipos de datos simples o fundamentales en R son los siguientes:</p>
 <table>
@@ -297,144 +338,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="estructura-de-control" class="section level2">
+<div id="estructura-de-control" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estructura de control</h2>
-<p>Las estructuras de control nos permiten controlar el flujo de ejecución de una secuencia de comandos. De este modo, podemos poner “lógica” en el código de R y lograr así reutilizar fragmentos del código una y otra vez. A continuación, veremos la sentencia de control .</p>
-<div id="sentencias-de-control---if-else" class="section level3">
+<p>Las estructuras de control nos permiten controlar el flujo de ejecución de una secuencia de comandos. De este modo, podemos poner “lógica” en el código de R y lograr así reutilizar fragmentos del código una y otra vez. A continuación, veremos la sentencia de control.</p>
+<div id="sentencias-de-control---if-else" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Sentencias de Control - If / Else</h3>
 <p>Esta sentencia nos permite decidir si ejecutar o no un fragmento de código en función de una condición.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">numero &lt;-<span class="st"> </span><span class="dv">6</span></a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span> (numero <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb2-2" title="2">  x &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb2-3" title="3">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb2-4" title="4">  x &lt;-<span class="st"> </span><span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb2-5" title="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="lenguaje.html#cb1-1" aria-hidden="true" tabindex="-1"></a>numero <span class="ot">&lt;-</span> <span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lenguaje.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (numero <span class="sc">&gt;</span> <span class="dv">5</span>){</span>
+<span id="cb2-2"><a href="lenguaje.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-3"><a href="lenguaje.html#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-4"><a href="lenguaje.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb2-5"><a href="lenguaje.html#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Otra forma de realizar lo anterior es de la siguiente manera.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">ifelse</span>(numero <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lenguaje.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(numero <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="control-de-flujo" class="section level3">
+<div id="control-de-flujo" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Control de Flujo</h3>
 <p>La función <code>while()</code> ejecuta un bucle o ciclo mientras sea verdadera una condición.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="cf">while</span>(numero <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>) {</a>
-<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">print</span>(numero)</a>
-<a class="sourceLine" id="cb5-3" title="3">  numero &lt;-<span class="st"> </span>numero <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb5-4" title="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="lenguaje.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(numero <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb5-2"><a href="lenguaje.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(numero)</span>
+<span id="cb5-3"><a href="lenguaje.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  numero <span class="ot">&lt;-</span> numero <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="lenguaje.html#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 6
 ## [1] 7
 ## [1] 8
 ## [1] 9</code></pre>
 <p>El comando <code>for()</code> toman una variable a la que se le asignan los elementos de un objeto (en general, vectores o listas) en forma sucesiva a medida que se van recorriendo los ciclos.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#for(&lt;variable&gt; in &lt;objeto iterable&gt;) {</span></a>
-<a class="sourceLine" id="cb7-2" title="2">  <span class="co"># código</span></a>
-<a class="sourceLine" id="cb7-3" title="3">  </a>
-<a class="sourceLine" id="cb7-4" title="4"></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="cf">for</span>(X <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb7-6" title="6">  <span class="kw">print</span>(X)</a>
-<a class="sourceLine" id="cb7-7" title="7">}  </a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lenguaje.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for(&lt;variable&gt; in &lt;objeto iterable&gt;) {</span></span>
+<span id="cb7-2"><a href="lenguaje.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># código</span></span>
+<span id="cb7-3"><a href="lenguaje.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-4"><a href="lenguaje.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="lenguaje.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(X <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb7-6"><a href="lenguaje.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(X)</span>
+<span id="cb7-7"><a href="lenguaje.html#cb7-7" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3
 ## [1] 4
 ## [1] 5</code></pre>
 <p>El comando <code>switch()</code> permite ejecutar un bloque de código distinto en función del valor de una variable.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">W &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb9-2" title="2">type &lt;-<span class="st"> &#39;mean&#39;</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="cf">switch</span>(type,</a>
-<a class="sourceLine" id="cb9-4" title="4">         <span class="dt">mean =</span> <span class="kw">mean</span>(W),</a>
-<a class="sourceLine" id="cb9-5" title="5">         <span class="dt">median =</span> <span class="kw">median</span>(W),</a>
-<a class="sourceLine" id="cb9-6" title="6">         <span class="dt">sd =</span> <span class="kw">sd</span>(W))</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lenguaje.html#cb9-1" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb9-2"><a href="lenguaje.html#cb9-2" aria-hidden="true" tabindex="-1"></a>type <span class="ot">&lt;-</span> <span class="st">&#39;mean&#39;</span></span>
+<span id="cb9-3"><a href="lenguaje.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span>(type,</span>
+<span id="cb9-4"><a href="lenguaje.html#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mean =</span> <span class="fu">mean</span>(W),</span>
+<span id="cb9-5"><a href="lenguaje.html#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">median =</span> <span class="fu">median</span>(W),</span>
+<span id="cb9-6"><a href="lenguaje.html#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd =</span> <span class="fu">sd</span>(W))</span></code></pre></div>
 <pre><code>## [1] 5.5</code></pre>
 </div>
 </div>
-<div id="estructura-de-datos" class="section level2">
+<div id="estructura-de-datos" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Estructura de datos</h2>
-<div id="variables" class="section level3">
+<div id="variables" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Variables</h3>
 <p>El siguiente código asigna (= o &lt;-) el valor 12 a las variables valor.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">valor =<span class="st"> </span><span class="dv">25</span> </a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co"># o </span></a>
-<a class="sourceLine" id="cb11-3" title="3">valor &lt;-<span class="st"> </span><span class="dv">25</span> </a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lenguaje.html#cb11-1" aria-hidden="true" tabindex="-1"></a>valor <span class="ot">=</span> <span class="dv">25</span> </span>
+<span id="cb11-2"><a href="lenguaje.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># o </span></span>
+<span id="cb11-3"><a href="lenguaje.html#cb11-3" aria-hidden="true" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="dv">25</span> </span></code></pre></div>
 </div>
-<div id="vectores" class="section level3">
+<div id="vectores" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Vectores</h3>
 <p>Los vectores pueden representar las columnas de una tabla de datos. un ejemplo podría ser la lista del curso con las notas.</p>
-<p><img src="C:/Users/nicol/OneDrive/Escritorio/imagenes/vectores.PNG" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="static/img/imagen3.3.2.PNG" alt="Ejemplo de vectores." width="653px" height="320px" />
+<p class="caption">
+Figure 3.1: Ejemplo de vectores.
+</p>
+</div>
 <p>Si queremos crear vectores en R, utilizamos la función <code>c()</code>. En este caso, la c es de «combinar» (combinar uno o más valores o elementos). Lo más común, es que los vectores sean de tipo numérico, carácter o lógico.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#vector 1</span></a>
-<a class="sourceLine" id="cb12-2" title="2">Nombre &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Camila&quot;</span>, <span class="st">&quot;Erick&quot;</span>)</a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="co">#vector 2</span></a>
-<a class="sourceLine" id="cb12-4" title="4">Apellido &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Acosta&quot;</span>, <span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Ortega&quot;</span>)</a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="co">#vector 3 </span></a>
-<a class="sourceLine" id="cb12-6" title="6">Prueba_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">55</span>, <span class="dv">65</span>)</a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="co">#vector 4</span></a>
-<a class="sourceLine" id="cb12-8" title="8">Prueba_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">60</span>, <span class="dv">40</span>, <span class="dv">60</span>)</a></code></pre></div>
-<div id="operar-vectores" class="section level4">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lenguaje.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#vector 1</span></span>
+<span id="cb12-2"><a href="lenguaje.html#cb12-2" aria-hidden="true" tabindex="-1"></a>Nombre <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Camila&quot;</span>, <span class="st">&quot;Erick&quot;</span>)</span>
+<span id="cb12-3"><a href="lenguaje.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#vector 2</span></span>
+<span id="cb12-4"><a href="lenguaje.html#cb12-4" aria-hidden="true" tabindex="-1"></a>Apellido <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Acosta&quot;</span>, <span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Ortega&quot;</span>)</span>
+<span id="cb12-5"><a href="lenguaje.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#vector 3 </span></span>
+<span id="cb12-6"><a href="lenguaje.html#cb12-6" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">55</span>, <span class="dv">65</span>)</span>
+<span id="cb12-7"><a href="lenguaje.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#vector 4</span></span>
+<span id="cb12-8"><a href="lenguaje.html#cb12-8" aria-hidden="true" tabindex="-1"></a>Prueba_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">40</span>, <span class="dv">60</span>)</span></code></pre></div>
+<div id="operar-vectores" class="section level4" number="3.3.2.1">
 <h4><span class="header-section-number">3.3.2.1</span> Operar vectores</h4>
 <p>Podemos operar vectores contra valores numéricos o con otros vectores. En la siguiente tabla se mostrarán las operaciones básicas que se pueden hacer con vectores.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="center">Operaciones</th>
+<th align="left">Operaciones</th>
 <th align="center">Sintaxis</th>
-<th align="left"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Adición</td>
+<td align="left">Adición</td>
 <td align="center">+</td>
-<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="center">Sustracción</td>
+<td align="left">Sustracción</td>
 <td align="center">-</td>
-<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="center">Dividir</td>
+<td align="left">Dividir</td>
 <td align="center">/</td>
-<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="center">Producto Escalar</td>
+<td align="left">Producto Escalar</td>
 <td align="center">%*%</td>
-<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="center">Producto de Elementos</td>
+<td align="left">Producto de Elementos</td>
 <td align="center">*</td>
-<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="center">Suma de Elementos</td>
+<td align="left">Suma de Elementos</td>
 <td align="center"><code>sum()</code></td>
-<td align="left"></td>
 </tr>
 </tbody>
 </table>
-<p>Por ejemplo, se asigna dos décimas a la prueba 1 para cada estudiantes.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">Prueba_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<p>Por ejemplo, se asigna dos décimas a la prueba 1 para cada estudiante.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="lenguaje.html#cb13-1" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 42 57 67</code></pre>
 <p>Se resta 5 décimas a las pruebas 2 para cada estudiante.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">Prueba_<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="lenguaje.html#cb15-1" aria-hidden="true" tabindex="-1"></a>Prueba_2 <span class="sc">-</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>## [1] 55 35 55</code></pre>
 <p>Se quiere saber cuánto suman las dos notas por estudiante.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">Prueba_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>Prueba_<span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="lenguaje.html#cb17-1" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="sc">+</span> Prueba_2</span></code></pre></div>
 <pre><code>## [1] 100  95 125</code></pre>
 <p>Como se observa se sumaron las primeras notas y para obtener las notas modificadas se realiza lo siguiente.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># se cambia las notas en los vectores con la nueva asignacion  </span></a>
-<a class="sourceLine" id="cb19-2" title="2">Prueba_<span class="dv">1</span> &lt;-<span class="st"> </span>Prueba_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb19-3" title="3">Prueba_<span class="dv">2</span> &lt;-<span class="st"> </span>Prueba_<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">Prueba_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>Prueba_<span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="lenguaje.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se cambia las notas en los vectores con la nueva asignación  </span></span>
+<span id="cb19-2"><a href="lenguaje.html#cb19-2" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="ot">&lt;-</span> Prueba_1 <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb19-3"><a href="lenguaje.html#cb19-3" aria-hidden="true" tabindex="-1"></a>Prueba_2 <span class="ot">&lt;-</span> Prueba_2 <span class="sc">-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="lenguaje.html#cb20-1" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="sc">+</span> Prueba_2</span></code></pre></div>
 <pre><code>## [1]  97  92 122</code></pre>
 <p>Queremos saber la suma de las notas de la prueba 1.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">sum</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="lenguaje.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] 166</code></pre>
 <p>Ahora queremos saber el promedio entre las dos pruebas por cada estudiante.</p>
 </div>
-<div id="operaciones-estadisticas" class="section level4">
-<h4><span class="header-section-number">3.3.2.2</span> Operaciones Estadisticas</h4>
+<div id="operaciones-estadísticas" class="section level4" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Operaciones estadísticas</h4>
 <table>
 <thead>
 <tr class="header">
@@ -485,56 +524,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+
+<div class="example">
+<span id="exm:foo" class="example"><strong>Example 3.1  (Entornos de bookdown)  </strong></span>Esto es un ejemplo.
+</div>
 <p>Ahora si queremos calcular la media aritmética o promedio de la prueba 1, se tendrá que utilizar el comando <code>mean()</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">mean</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lenguaje.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] 55.33333</code></pre>
 <p>Queremos ver la nota mínima y máxima de la prueba 2.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">min</span>(Prueba_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lenguaje.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(Prueba_2)</span></code></pre></div>
 <pre><code>## [1] 35</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">max</span>(Prueba_<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lenguaje.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(Prueba_2)</span></code></pre></div>
 <pre><code>## [1] 55</code></pre>
 <p>Si queremos realizar una suma acumulada de la prueba 1, se utiliza el comando <code>cumsum()</code>, lo que hace es sumar los dos primeros elemento; este resultado lo suma al tercer elemento y así sucesivamente.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">cumsum</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lenguaje.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1]  42  99 166</code></pre>
 </div>
-<div id="orden-de-los-vectores" class="section level4">
+<div id="orden-de-los-vectores" class="section level4" number="3.3.2.3">
 <h4><span class="header-section-number">3.3.2.3</span> Orden de los vectores</h4>
 <p>Si queremos ordenar los vectores de formas creciente usaremos la función <code>sort()</code>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">sort</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="lenguaje.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] 42 57 67</code></pre>
 <p>La función <code>rev()</code> coloca las componentes de un vector en orden inverso a como han sido introducidas.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">rev</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="lenguaje.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rev</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] 67 57 42</code></pre>
-<p>También se puede realizar de la siguente forma agregamos la decreasing= TRUE para hacerlo decreciente.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">sort</span>(Prueba_<span class="dv">1</span>, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>También se puede realizar de la siguiente forma agregamos la decreasing= TRUE para hacerlo decreciente.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="lenguaje.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(Prueba_1, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 67 57 42</code></pre>
 <p>Si queremos invertir el orden del vector prueba 1.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">rev</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lenguaje.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rev</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] 67 57 42</code></pre>
 <p>Ahora si queremos saber el tipo de clase que es el vector</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">class</span>(Prueba_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lenguaje.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Prueba_1)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">class</span>(Nombre)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lenguaje.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Nombre)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>Un vector tiene el mismo tipo que los datos que contiene.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">Prueba_<span class="dv">1</span><span class="op">&gt;</span><span class="dv">71</span></a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lenguaje.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Prueba_1<span class="sc">&gt;</span><span class="dv">71</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">Prueba_<span class="dv">1</span><span class="op">&lt;</span><span class="dv">71</span></a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lenguaje.html#cb46-1" aria-hidden="true" tabindex="-1"></a>Prueba_1<span class="sc">&lt;</span><span class="dv">71</span></span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">Prueba_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">42</span></a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lenguaje.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Prueba_1 <span class="sc">==</span> <span class="dv">42</span></span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
-<div id="matrices" class="section level3">
+<div id="matrices" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Matrices</h3>
 <p>Una matriz R no es más que un vector que cuenta con un atributo llamado dim indicando el número de filas y columnas de la matriz. Se trata, por tanto, de una estructura de datos en la que todos los elementos han de ser del mismo tipo. Podemos
-crear una matriz a partir de un vector, asi como indicando el número de filas y columnas dejando todos sus elementos vacíos.</p>
-<p>Ahora crearemos una matrix que contenga números del 4 al 55 que tenga 8 columas y 7 filas</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">Matriz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">55</span>,<span class="dt">ncol=</span><span class="dv">8</span>) <span class="co"># Dos formas de generar exactamente</span></a></code></pre></div>
-<pre><code>## Warning in matrix(4:55, ncol = 8): data length [52] is not a sub-multiple or multiple of the number of rows [7]</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">Matriz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">55</span>,<span class="dt">nrow=</span><span class="dv">7</span>) <span class="co"># la misma matriz</span></a></code></pre></div>
-<pre><code>## Warning in matrix(4:55, nrow = 7): data length [52] is not a sub-multiple or multiple of the number of rows [7]</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">Matriz</a></code></pre></div>
+crear una matriz a partir de un vector, así como indicando el número de filas y columnas dejando todos sus elementos vacíos.</p>
+<p>Ahora crearemos una matriz que contenga números del 4 al 55 que tenga 8 columnas y 7 filas</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="lenguaje.html#cb50-1" aria-hidden="true" tabindex="-1"></a>Matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">55</span>,<span class="at">ncol=</span><span class="dv">8</span>) <span class="co"># Dos formas de generar exactamente</span></span></code></pre></div>
+<pre><code>## Warning in matrix(4:55, ncol = 8): la longitud de los datos [52] no es un
+## submúltiplo o múltiplo del número de filas [7] en la matriz</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="lenguaje.html#cb52-1" aria-hidden="true" tabindex="-1"></a>Matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">55</span>,<span class="at">nrow=</span><span class="dv">7</span>) <span class="co"># la misma matriz</span></span></code></pre></div>
+<pre><code>## Warning in matrix(4:55, nrow = 7): la longitud de los datos [52] no es un
+## submúltiplo o múltiplo del número de filas [7] en la matriz</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="lenguaje.html#cb54-1" aria-hidden="true" tabindex="-1"></a>Matriz</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
 ## [1,]    4   11   18   25   32   39   46   53
 ## [2,]    5   12   19   26   33   40   47   54
@@ -545,17 +590,17 @@ crear una matriz a partir de un vector, asi como indicando el número de filas y
 ## [7,]   10   17   24   31   38   45   52    7</code></pre>
 <p>la función <code>length()</code> devuelve el número de
 elementos de una matriz.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">length</span>(Matriz) </a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="lenguaje.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(Matriz) </span></code></pre></div>
 <pre><code>## [1] 56</code></pre>
 <p>Para conocer el número de filas y columnas podemos usar
 las función <code>nrow()</code>,<code>ncol()</code> y <code>dim()</code>.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">nrow</span>(Matriz)</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="lenguaje.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(Matriz)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw">dim</span>(Matriz)</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="lenguaje.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Matriz)</span></code></pre></div>
 <pre><code>## [1] 7 8</code></pre>
 <p>si queremos nombrar las columnas y filas de la matriz usamos la funciones <code>colnames()</code> y <code>rownomes()</code> respectivamemente.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">colnames</span>(Matriz) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Semana1&#39;</span>,<span class="st">&#39;Semana2&#39;</span>,<span class="st">&#39;Semana3&#39;</span>,  <span class="st">&#39;Semana4&#39;</span>,<span class="st">&#39;Semana5&#39;</span>, <span class="st">&#39;Semana6&#39;</span>, <span class="st">&#39;Semana7&#39;</span>, <span class="st">&#39;Semana8&#39;</span>)</a>
-<a class="sourceLine" id="cb62-2" title="2">Matriz</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="lenguaje.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Matriz) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Semana1&#39;</span>,<span class="st">&#39;Semana2&#39;</span>,<span class="st">&#39;Semana3&#39;</span>,  <span class="st">&#39;Semana4&#39;</span>,<span class="st">&#39;Semana5&#39;</span>, <span class="st">&#39;Semana6&#39;</span>, <span class="st">&#39;Semana7&#39;</span>, <span class="st">&#39;Semana8&#39;</span>)</span>
+<span id="cb62-2"><a href="lenguaje.html#cb62-2" aria-hidden="true" tabindex="-1"></a>Matriz</span></code></pre></div>
 <pre><code>##      Semana1 Semana2 Semana3 Semana4 Semana5 Semana6 Semana7 Semana8
 ## [1,]       4      11      18      25      32      39      46      53
 ## [2,]       5      12      19      26      33      40      47      54
@@ -565,33 +610,51 @@ las función <code>nrow()</code>,<code>ncol()</code> y <code>dim()</code>.</p>
 ## [6,]       9      16      23      30      37      44      51       6
 ## [7,]      10      17      24      31      38      45      52       7</code></pre>
 </div>
-<div id="data-frames" class="section level3">
+<div id="data-frames" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Data frames</h3>
-<p>El data frame es seguramente el tipo de dato más utilizado en R, el data frame está compuesto de múltiples columnas y filas, como una matriz, pero cada columna puede ser un tipo distinto.</p>
-<p>Ahora con las anteriores variables de las notas de los alumnos crearemos un data frame con función <code>data.frame ()</code>.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">lista_alum &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Nombre, Apellido, Prueba_<span class="dv">1</span>, Prueba_<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb64-2" title="2">lista_alum</a></code></pre></div>
+<p>El data frame es seguramente el tipo de dato más utilizado en R, el data frame está compuesto de múltiples columnas y filas, como una matriz, pero cada columna puede ser un tipo distinto. Pero antes de adentrarnos a data frame es importante saber cuál es las diferencias con un data set.
+Un data set (conjunto de datos) es cualquier dato que recopile para su análisis. Esto podría obtenerse de un archivo de Excel, una base de datos, un lago de datos o cualquier otro medio para almacenar datos. Un conjunto de datos se puede cargar en un data frame (marco de datos) que es una estructura de tabla construida específicamente para el análisis.
+Un data frame usa RAM en lugar de discos duros, lo que significa que usa un almacenamiento temporal rápido que desaparecerá una vez que se apague la computadora.
+Ahora con las anteriores variables llamadas notas de los alumnos crearemos un data frame con la función <code>data.frame ()</code>. Es importante destacar que un data frame está compuesto por vectores.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="lenguaje.html#cb64-1" aria-hidden="true" tabindex="-1"></a>lista_alum <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Nombre, Apellido, Prueba_1, Prueba_2)</span>
+<span id="cb64-2"><a href="lenguaje.html#cb64-2" aria-hidden="true" tabindex="-1"></a>lista_alum</span></code></pre></div>
 <pre><code>##   Nombre Apellido Prueba_1 Prueba_2
 ## 1 Carlos   Acosta       42       55
 ## 2 Camila   Madrid       57       35
 ## 3  Erick   Ortega       67       55</code></pre>
 <p>Veremos el número de observaciones con la función <code>nrow()</code>.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">nrow</span>(lista_alum)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="lenguaje.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(lista_alum)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Nombres de las columnas con la función <code>names()</code>.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">names</span>(lista_alum)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="lenguaje.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lista_alum)</span></code></pre></div>
 <pre><code>## [1] &quot;Nombre&quot;   &quot;Apellido&quot; &quot;Prueba_1&quot; &quot;Prueba_2&quot;</code></pre>
 <p>El tipo de caracter que poseen las columnas.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">str</span>(lista_alum)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="lenguaje.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(lista_alum)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  4 variables:
-##  $ Nombre  : Factor w/ 3 levels &quot;Camila&quot;,&quot;Carlos&quot;,..: 2 1 3
-##  $ Apellido: Factor w/ 3 levels &quot;Acosta&quot;,&quot;Madrid&quot;,..: 1 2 3
+##  $ Nombre  : chr  &quot;Carlos&quot; &quot;Camila&quot; &quot;Erick&quot;
+##  $ Apellido: chr  &quot;Acosta&quot; &quot;Madrid&quot; &quot;Ortega&quot;
 ##  $ Prueba_1: num  42 57 67
 ##  $ Prueba_2: num  55 35 55</code></pre>
+<p>Aquí podemos observar diferentes informaciones que posee el data frame list_alum, lo primero que observamos es la cantidad de observaciones las cuales posee 3 , también la cantidad de variables las cuales son 4, los nombres de cada variables o columnas con sus respectivo tipo de data que posee en este caso tenemos dos variables numéricas y dos variables de carácter.</p>
+<div id="detach" class="section level4" number="3.3.4.1">
+<h4><span class="header-section-number">3.3.4.1</span> Detach</h4>
+<p>La notación $ para el acceso a elementos de un data.frame</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="lenguaje.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lista_alum<span class="sc">$</span>Prueba_1)</span></code></pre></div>
+<pre><code>## [1] 55.33333</code></pre>
+</div>
+<div id="operaciones-estadísticas-data-frame" class="section level4" number="3.3.4.2">
+<h4><span class="header-section-number">3.3.4.2</span> Operaciones estadísticas Data frame</h4>
+<p>Si queremos saber la nota máxima de la prueba_2 .</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="lenguaje.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lista_alum<span class="sc">$</span>Prueba_2)</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<p>Si queremos saber la nota mínima de la prueba_2 .</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="lenguaje.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lista_alum<span class="sc">$</span>Prueba_2)</span></code></pre></div>
+<pre><code>## [1] 35</code></pre>
 <div/>
 
 
 
+</div>
 </div>
 </div>
 </div>
@@ -601,7 +664,7 @@ las función <code>nrow()</code>,<code>ncol()</code> y <code>dim()</code>.</p>
         </div>
       </div>
 <a href="conceptos-básicos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="package-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
