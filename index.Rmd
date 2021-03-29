@@ -1,5 +1,5 @@
 ---
-title: "bookdown"
+title: "DATA ANALYTICS EFEB0092"
 author: "Nicole tiare Vasquez"
 date: "10-10-2020"
 site: bookdown::bookdown_site
@@ -14,7 +14,7 @@ The output format for this example is bookdown::gitbook."
 
 ---
 
-# nombre del documento 
+# DATA ANALYTICS EFEB0092  
 <div style="text-align: justify">
 
 El objetivo de este libro es ser un material de apoyo para los estudiantes que cursan el ramo de Data Analytics, con el fin de facilitar el aprendizaje de esta herramienta que les servirá para apoyar el desarrollo de sus trabajos. Además, esta materia sirve para las personas interesada en conocer y aprender un nuevo lenguaje.
@@ -33,5 +33,22 @@ En cuanto al proceso de EDA y visualización en donde extraemos la información 
 ## Cómo está organizado este libro
 
 Este libro se divide en cinco partes, el primer capítulo trata sobre conceptos básicos sobre R y sobre programación, en el segundo capítulo se explica el lenguaje utilizado en R y los diferentes tipos y estructura de datos. en el tercer capitulo se explica algunas librerías principales para manejo de data frame con sus principales funciones.  Para luego el en cuarto capitulo condesar lo anteriormente aprendido importar, combinar y explorar una data, para finalizar con una introducción a machine learning tanto con modelos supervisados y no supervisado.
+
+## Referencia 
+
+Para la elaboración de este libro se utilizaron las fuentes oficiales de R con el siguiente enlace: 
+
+https://www.tidyverse.org/
+
+https://www.r-project.org/
+
+En cuanto a la elaboración del capítulo 5 “Machine Learning” los ejemplos fueron extraídos del libro “Machine Learning” de Hefin L.Rhys , y la explicación fue complementada con el siguiente link: 
+
+https://www.r-bloggers.com/2019/10/support-vector-machines-with-the-mlr-package/
+
+Y los clasificadores del capítulo fueron extraídos del siguiente enlace:
+
+https://mlr.mlr-org.com/articles/tutorial/integrated_learners.html
+
 
 <div/>

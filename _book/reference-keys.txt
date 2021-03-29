@@ -200,3 +200,5 @@ vecinos-cercanos-knn
 seleccionar-columnas-con-la-función-select.
 función-relocate-cambiar-posición-de-las-columnas.
 analizar-el-dataset-iris
+data-analytics-efeb0092
+referencia
