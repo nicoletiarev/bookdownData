@@ -1,6 +1,6 @@
 ---
 title: "DATA ANALYTICS EFEB0092"
-author: "Nicole tiare Vasquez"
+author: "Nicole tiare Vasquez - José Miguel Tobar"
 date: "10-10-2020"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -9,30 +9,42 @@ bibliography: [book.bib, packages.bib,]
 biblio-style: "apalike"
 link-citations: true
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book.
-The output format for this example is bookdown::gitbook."
+description: "Este libro es un apunte para el desarrollo del ramo Data Analytics EFEB0092 de la Universidad Técnológica Metropolitana."
 
 ---
 
 # DATA ANALYTICS EFEB0092  
 <div style="text-align: justify">
 
-El objetivo de este libro es ser un material de apoyo para los estudiantes que cursan el ramo de Data Analytics, con el fin de facilitar el aprendizaje de esta herramienta que les servirá para apoyar el desarrollo de sus trabajos. Además, esta materia sirve para las personas interesada en conocer y aprender un nuevo lenguaje.
+El objetivo de este apunte es ser un material de apoyo para los estudiantes que cursan el ramo de Data Analytics - EFEB0092. Este material tiene un enfoque práctico, que les servirá para realizar el desarrollo de sus trabajos de investigación.
+
+La idea inicial de este apunte nace de la poca documentación existente en español para el lenguaje R y los problemas que tuvieron los alumnos que cursaron el ramo con anteioridad.
 
 ## Lo que aprenderás
 
-El objetivo de este, en particular, es entregarte una herramienta para poder comenzar en el mundo de ciencia de datos, para ello se condenso toda la información necesaria para que puedas realizar diferentes modelos que se muestran en este libro. Pero primero debes tener en cuenta el siguiente diagrama en donde se ilustra el proceso de programación que aprenderás. 
+Este libro pretende ser un paso a paso para el aprendizaje de análisis de datos utilizando el Lenguaje R. Para el desarrollo de este libro se recopilaron y desarrollaron diversas fuentes de información, con ejemplos y fuentes de datos, lo que permite al lector aprender desde como instalar el software hasta implementar modelos predictivos en Machine Learning. 
+
+El siguiente diagrama muestra a modo general el proceso que seguiremos en el libro:
 
 ```{r echo=FALSE, out.width = "653px", out.height="320px",fig.align='center', fig.cap='Proceso de programación.'}
 knitr::include_graphics("static/img/imagen1.1.PNG")
 ```
 
-El primer proceso es la importación delos datos a R, estos se pueden presentar en diferentes formatos como CSV, EXCEL o en TXT, en cuanto el segundo y el tercer proceso depende de la persona que programe si quiere realizar la limpieza de los datos antes de unir o combinar los data frame. Entendiéndose como limpieza de los datos cuando existen datos vacíos o datos que presenta algún tipo de anomalías, todo esto lo veremos con mas detalle más adelante.  En cuanto a la transformación es el proceso en donde una vez consolidado en un solo data frame se procede a realizar operaciones o modificaciones como por ejemplo agregar una variable en base a las operaciones de otras variables etc… 
-En cuanto al proceso de EDA y visualización en donde extraemos la información más relevante del data frame. Una buena visualización te mostrará cosas que no se contemplaron o hará surgir nuevas preguntas acerca de los datos. También puede darte pistas acerca de si estás haciendo las preguntas equivocadas o si necesitas recolectar datos diferentes. Para luego finalizar en el modelamiento en donde se aplica un modelo de machine learning.
+El punto de partida es la importación de los datos a R, estos se pueden presentar en diversos formatos como CSV, EXCEL o TXT. 
+
+En cuanto a la limpieza de los datos esta se refiere a que los dataset en el mundo real son complejos, con problemas en sus campos por ejemplo cuando existen datos vacíos o datos que presenta algún tipo de anomalías.
+
+La transformación es el proceso en donde una vez consolidado en un sólo dataframe o tibble se procede a realizar operaciones o modificaciones, por ejemplo agregar una variable calculada desde operaciones de otras variables.
+
+El proceso de EDA (análisis exploratorio de datos) y visualización permite encontrar insights relevantes para la toma de decisiones del negocio. Una buena visualización permite visualizar aspectos relevantes de los datos o hará surgir nuevas preguntas. También esta técnica te entrega guias acerca de si estás haciendo las preguntas equivocadas o si necesitas recolectar datos diferentes. 
+
+Para finalizar el modelamiento permite a través de los datos y de su historia generalizar y generar predicciones para eventos futuros. Se revisarán tanto técnicas supervisadas como no supervisadas.
 
 ## Cómo está organizado este libro
 
-Este libro se divide en cinco partes, el primer capítulo trata sobre conceptos básicos sobre R y sobre programación, en el segundo capítulo se explica el lenguaje utilizado en R y los diferentes tipos y estructura de datos. en el tercer capitulo se explica algunas librerías principales para manejo de data frame con sus principales funciones.  Para luego el en cuarto capitulo condesar lo anteriormente aprendido importar, combinar y explorar una data, para finalizar con una introducción a machine learning tanto con modelos supervisados y no supervisado.
+Este libro se divide en cinco capítulos, partiendo desde lo básico de como utilizar R y sus conceptos hasta conceptos más avanzados como visualizaciones y modelamiento.
+
+El primero capítulo describe conceptos básicos sobre R y sobre programación en general. El segundo capítulo detalla conceptos más aplicados del lenguaje, junto con los tipos y estructuras de datos más utilizadas. En tercer capítulo se describen las bibliotecas principales para manejo de datos con sus principales funciones. El cuarto capítulo se centra en la exploración de los datos tanto a través de datos como visualizaciones. Para finalizar con un capítulo que describe distintas técnicas de aprendizaje de máquina o machine learning.
 
 ## Referencia 
 
