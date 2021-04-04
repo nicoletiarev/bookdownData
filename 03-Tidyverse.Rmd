@@ -1,19 +1,15 @@
----
-title: "Tidyverse"
----
 # Package Tidyverse 
 
 <div style="text-align: justify">
 
-Tidyverse es un conjunto de paquetes en R diseñados para ciencia de datos, el cual nos ayuda en todo el proceso de la importación, transformación, visualizar y modelación datos. Una de las principales ventajas es que tienen estos paquetes que comparten nombre y estructuras comunes, esto quiere decir que todos los nombres están en minúscula o que utilizan la barra baja para llamar a las funciones.
+Tidyverse es un ecosistema de paquetes en R diseñados para ciencia de datos, el que nos ayuda en todo el proceso de la importación, transformación, visualización y modelamiento datos. Una de las principales ventajas es que estos paquetes comparten formas de uso y estructuras comunes.
 
-```{r}
+```{r message=TRUE, warning=FALSE}
 #install.packages('tidyverse')
 library(tidyverse)
-
 ```
 
-Algunas librerías que contiene disponible **tidyverse** son los siguientes:
+Algunas bibliotecas que contiene disponible **tidyverse** son las siguientes:
 
 * readr
 * dplyr
@@ -23,9 +19,9 @@ Algunas librerías que contiene disponible **tidyverse** son los siguientes:
 * forcats
 * ggplot2
 
-## library readr para importar datos
+## Library readr para importar datos
 
-El objetivo de readr es proporcionar una forma rápida y sencilla de leer datos con formato csv, tsv y fwf . Está diseñado para analizar de manera flexible muchos tipos de datos. 
+El objetivo de readr es proporcionar una forma rápida y sencilla de leer datos con formato csv, tsv y fwf. Está diseñado para analizar de manera flexible muchos tipos de datos. 
 
 ```{r}
 library(readr)
@@ -117,7 +113,7 @@ https://rstudio.com/wp-content/uploads/2015/03/data-wrangling-spanish.pdf
 A continuación, a través de la base de datos de Airbnb New York.
 
 ```{r echo=FALSE, message=FALSE}
-airbnb <- read.csv("C:/Users/nicol/OneDrive/AB_NYC_2019.csv")
+airbnb <- read.csv("data/AB_NYC_2019.csv")
 airbnb <- tail(airbnb, n = 10)
 airbnb <- select(airbnb, id, neighbourhood_group , room_type, price)
 ```
@@ -133,7 +129,7 @@ str(airbnb)
 
 #### Función `mutate()` para realizar operaciones de columnas.
 
-Es útil agregar nuevas columnas que sean funciones de columnas existentes. Con la función `mutate()` sirve más que nada para realizar operaciones matemáticas. Como, por ejemplo si queremos crear una columna de comisión con un 12%.
+Es útil agregar nuevas columnas que sean funciones de columnas existentes. Con la función `mutate()` sirve más que nada para realizar operaciones matemáticas. Como, por ejemplo si queremos crear una columna de comisión con un cálculo de 12%.
 
 ```{r}
 airbnb %>% mutate(comision = price * 0.12)
@@ -152,7 +148,7 @@ CODIGO | DESCRIPCIÓN|
 
 #### Seleccionar columnas con la función `select()`.
 
-La función `select()` le permite acercarse rápidamente a un subconjunto.
+La función `select()` permite extraer un subconjunto del tibble.
 
 ```{r}
 airbnb %>% select( id, room_type, neighbourhood_group)
@@ -232,12 +228,10 @@ CODIGO | DESCRIPCIÓN|
 Antes de mostrar el ejemplo es importante destacar los siguientes comandos `any_vars()` es equivalente al condicional "o", así el comando `all_vars()` es equivalente al condicional "y".
 
 El siguiente código selecciona todas las filas que contengan valores mayores a 5.
-```{r}
+```{r warning=FALSE}
 airbnb %>% 
   filter_all(any_vars(. >= 5))
 ```
-
-
 
 #### Función `arrange()` para ordenar observaciones.
 
@@ -372,7 +366,7 @@ airbnb %>% mutate (tipo_de_precio = if_else(price < 100 , "barato", "costoso") )
 
 ## Library tidyr para crear datos ordenados
 
-la libreria **tidyr** crear datos ordenados. Los datos ordenados son datos donde:
+La biblioteca **tidyr** sirve para crear datos ordenados:
 
 * Cada columna es variable.
 * Cada fila es una observación.
@@ -381,7 +375,7 @@ la libreria **tidyr** crear datos ordenados. Los datos ordenados son datos donde
 Tidy data describe una forma estándar de almacenar datos que se utiliza siempre que sea posible en tidyverse . Si se asegura de que sus datos estén ordenados.
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyr)
 ```
 
@@ -616,7 +610,7 @@ Para explicar los diferentes gráficos que posee esta librería usaremos la base
 
 ```{r, echo=FALSE}
 library(tidyverse)
-airbnb <- read.csv("C:/Users/nicol/OneDrive/AB_NYC_2019.csv")
+airbnb <- read.csv("data/AB_NYC_2019.csv")
 airbnb <- tail(airbnb, n = 10)
 airbnb <- select(airbnb, id, neighbourhood_group , room_type, price, availability_365)
 ```

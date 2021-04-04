@@ -1,11 +1,8 @@
----
-title: "lenguaje"
----
 # Lenguaje 
 
 <div style="text-align: justify">
 
-En este capítulo abordaremos los tipos de datos que se usan en una data frame, como también la estructura de control que nos permiten controlar el flujo de ejecución de una secuencia de comandos y la estructura de datos de la data frame. 
+En este capítulo abordaremos los tipos de datos que se usan en un dataframe o tibble, como también las estructuras que nos permiten controlar el flujo de ejecución de un programa y la estructuras para almacenar información.
 
 ## Tipos de datos 
 

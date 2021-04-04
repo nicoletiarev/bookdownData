@@ -1,55 +1,49 @@
-
-title: 'Análisis de datos '
----
-
-# Análisis de datos
+# Análisis de Datos
 <div style="text-align: justify">
 
-En este capítulo aplicaremos todo lo aprendido en el capítulo anterior, siguiendo los pasos nombrados en la Figure 1.1: Proceso de programación, para ello el primer paso es instalar la librería tidyverse.
+En este capítulo aplicaremos todos los conceptos, bibliotecas y funciones del capítulo anterior orientado a la aplicación. El primer paso es instalar la librería Tidyverse.
 
-
-```{r}
+```{r warning=FALSE}
 library(tidyverse)
 ```
 ##  Importar base de datos.
 
-
-Ahora demostraremos como cargar la data tanto para r-studio de escritorio como para R- cloud (versión online).
+Ahora demostraremos como cargar la data tanto para R-Studio de escritorio como para R-Studio Cloud (versión online).
 
 ### Desde R-Studio de escritorio  
 
-Para importar bases de datos en formato Excel en R- studio se ingresa en la ventana 2 en donde dice **Import Dataset** como se observa en la siguiente imagen.
+Para importar bases de datos en formato Excel en R-Studio se ingresa en la ventana 2 en donde dice **Import Dataset** como se observa en la siguiente imagen.
 
-```{r echo=FALSE, out.width = "960x", out.height="205px",fig.align='center', fig.cap='Importar base de datos desde R-Studio.`}
+```{r echo=FALSE, out.width = "960x", out.height="205px", fig.align="center", fig.cap="Importar base de datos desde R-Studio."}
 knitr::include_graphics("static/img/imagen5.1.1.PNG")
 ```
 Luego aparece una ventana en donde buscamos nuestra base de datos en nuestro computador, y una vez seleccionado el archivo aparece una segunda ventana llamada Import Dataset como se muestra en las dos siguientes imágenes. En la primera es la forma correcta de subir la base de datos como se encuentra demarcado el Heading colocamos YES esto es con el fin de que la base de datos que subamos tenga el encabezado correspondiente como se encuentra demostrado en la imagen.
 
-```{r echo=FALSE, out.width = "532px", out.height="409px",fig.align='center', fig.cap='Importar base de data set.`}
+```{r echo=FALSE, out.width = "532px", out.height="409px",fig.align='center', fig.cap="Importar base de data set."}
 knitr::include_graphics("static/img/imagen5.1.1(2).PNG")
 ```
 
 De lo contrario se puede ver en la siguiente imagen lo que sucede si ponemos "NO" en donde el encabezado se muestra como una observación más.
 
-```{r echo=FALSE, out.width = "532px", out.height="409px",fig.align='center', fig.cap='Importar data set, parte 2 .`}
+```{r echo=FALSE, out.width = "532px", out.height="409px",fig.align='center', fig.cap="Importar data set, parte 2."}
 knitr::include_graphics("static/img/imagen5.1.1(3).PNG")
 ```
 Una vez importada la base de datos podemos ver que aparece como Data Frame en la ventana 2, en esta también nos muestra características básicas como la cantidad de observaciones que posee el Data Frame.  También se puede observar en la consola que se importó el archivo correctamente, es recomendable copiar y pegar en el script lo demarcado, así cada vez que queramos trabajar se subirá automáticamente la base de datos. 
 
-```{r echo=FALSE, out.width = "800px", out.height="300px",fig.align='center', fig.cap='Importar data set, parte 3.`}
+```{r echo=FALSE, out.width = "800px", out.height="300px",fig.align='center', fig.cap="Importar data set, parte 3."}
 knitr::include_graphics("static/img/imagen5.1.1(4).PNG")
 ```
 
-### Desde R-cloud 
+### Desde R-Studio Cloud 
 
-En cuanto a R-Cloud se suben los archivos un poco diferentes, en este nos tenemos que dirigir la ventana 4 en donde dice **Upload**, esto abrirá una ventana llamada Target directory presionamos donde dice elegir archivo, con esto nos abre otra ventana en donde debemos buscar el archivo que queremos importar. 
+En cuanto a R-Studio Cloud se suben los archivos un poco diferentes, en este nos tenemos que dirigir la ventana 4 en donde dice **Upload**, esto abrirá una ventana llamada Target directory presionamos donde dice elegir archivo, con esto nos abre otra ventana en donde debemos buscar el archivo que queremos importar. 
 
-```{r echo=FALSE, out.width = "956px", out.height="516px",fig.align='center', fig.cap='Importar desde R-cloud.`}
+```{r echo=FALSE, out.width = "956px", out.height="516px",fig.align='center', fig.cap="Importar desde R-cloud."}
 knitr::include_graphics("static/img/imagen5.1.2.PNG")
 ```
- Esto creara un archivo en la ventana 4 como se muestra en la siguiente imagen. Y ahora se procede a realizar la importación del archivo en la segunda ventana como se realiza en R- Studio.
+ Esto creara un archivo en la ventana 4 como se muestra en la siguiente imagen. Y ahora se procede a realizar la importación del archivo en la segunda ventana como se realiza en R-Studio.
  
-```{r echo=FALSE, out.width = "920px", out.height="471px",fig.align='center', fig.cap='Importar desde R-cloud, parte 2.`}
+```{r echo=FALSE, out.width = "920px", out.height="471px",fig.align='center', fig.cap="Importar desde R-cloud, parte 2."}
 knitr::include_graphics("static/img/imagen5.1.2(2).PNG")
 ```
 
@@ -66,7 +60,7 @@ Cuando se trabaja con grandes cantidades de datos, a veces es necesario combinar
 
 Como se observa en la siguiente imagen, tenemos la columna ID esta sería la llave para unir las diferentes bases de datos. 
 
-```{r echo=FALSE, out.width = "920px", out.height="471px",fig.align='center', fig.cap='Combinar data frames en R.`}
+```{r echo=FALSE, out.width = "920px", out.height="471px",fig.align='center', fig.cap="Combinar data frames en R."}
 knitr::include_graphics("static/img/imagen5.2.PNG")
 ```
 
@@ -77,18 +71,18 @@ En segundo lugar, hay que tener en cuenta las tres familias de verbos diseñados
 * **set operations** (Establecer operaciones), que tratan las observaciones como si fueran elementos establecidos.
 *  **mutating joins** (Uniones de trasformación), que agregan nuevas variables a un marco de datos a partir de observaciones coincidentes en otro.
 
-### mutating joins (Uniones de trasformación)
+### Mutating joins (Uniones de trasformación)
 
 Esta busca combinar variables a partir de dos tablas, en la que busca coincidencias de observaciones de acuerdo con su put y luego copia las variables de una tabla en la otra. Tal como `mutate()`, las funciones de unión agregan variables hacia la derecha, por lo que,  si tienes muchas variables inicialmente, las nuevas variables no se imprimirán.
 
 Una de las uniones más simples es a través de `mage()` para hacer cruces de tablas, como se muestra en la siguiente imagen. 
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo principal.`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo principal."}
 knitr::include_graphics("static/img/imagen5.3.1.PNG")
 ```
 Para ello crearemos 2 bases baseA y baseB con una llave o columna en común ID.
 
-```{r, include=FALSE}
+```{r}
 #vectores 
 A <- c("x1", "x2", "x3", "x4", "x5", "x6")
 ID <- c( 1, 2, 3, 4, 5, 6)
@@ -159,7 +153,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, left_join .`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, left_join ."}
 knitr::include_graphics("static/img/imagen5.3.1.2..PNG")
 ```
 ```{r}
@@ -181,7 +175,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, right_join .` }
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, right_join ." }
 knitr::include_graphics("static/img/imagen5.3.1.2.(2).PNG")
 ```
 
@@ -206,7 +200,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, full_join .`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, full_join ."}
 knitr::include_graphics("static/img/imagen5.3.1.2.(3).PNG")
 ```
 
@@ -235,7 +229,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, claves duplicadas.`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, claves duplicadas."}
 knitr::include_graphics("static/img/imagen5.3.1.3.PNG")
 ```
 
@@ -259,7 +253,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, claves duplicadas 2.`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, claves duplicadas 2."}
 knitr::include_graphics("static/img/imagen5.3.1.3(2).png")
 ```
 
@@ -344,7 +338,7 @@ baseB <- data.frame(ID1, B)
 names (baseB)[1] = "ID"
 ```
 
-```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap='Ejemplo, anti_join.`}
+```{r echo=FALSE, out.width = "775px", out.height="230px",fig.align='center', fig.cap="Ejemplo, anti_join."}
 knitr::include_graphics("static/img/imagen5.3.2(2).PNG")
 ```
 
@@ -378,13 +372,15 @@ airbnb <- read.csv("static/img/AB_NYC_2019.csv")
 
 Luego realizamos la visualización de la data. 
 
-```{r eval=FALSE}
+```{r eval=FALSE, warning=FALSE}
 airbnb
 ```
 
 ```{r echo=FALSE}
 library(DT)
-datatable(airbnb)
+dt_air <- slice_sample(airbnb, n=300) 
+datatable(dt_air)
+
 ```
 
 Ahora realizaremos una breve descripción de las columnas de la data: 
