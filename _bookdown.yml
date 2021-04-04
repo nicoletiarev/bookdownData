@@ -1,0 +1,9 @@
+book_filename: "Data-Analytics"
+language:
+  ui:
+    chapter_name: "Capítulo "
+    delete_merged_file: true
+    output_dir: "book_data"
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
